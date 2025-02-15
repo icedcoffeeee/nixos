@@ -32,7 +32,7 @@
     hlsearch = true;
 
     list = true;
-    listchars = { tab = " >"; trail = "·"; nbsp = "␣"; };
+    listchars = { tab = "  "; trail = "·"; nbsp = "␣"; };
 
     inccommand = "split";  # preview substitutions live as you type
     cursorline = true;

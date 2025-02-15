@@ -1,6 +1,6 @@
 { ... }:
 {
-  options.lsp = {
+  plugins.lsp = {
     enable = true;
     servers = {
       astro.enable = true;
@@ -8,6 +8,7 @@
       clangd.enable = true;
       emmet_language_server.enable = true;
       svelte.enable = true;
+      ts_ls.enable = true;
 
       lua_ls = {
         enable = true;
@@ -24,44 +25,22 @@
       };
       tailwindcss = {
         enable = true;
-        settings.tailwindCSS.classAttributes = [
-          "class"
-          "className"
-          "class:list"
-          ".*ClassName.*"
-          "tw"
-        ];
+        settings.tailwindCSS.classAttributes = [ "class" "className" "class:list" ".*ClassName.*" "tw" ];
       };
       texlab = {
         enable = true;
-        settings.texlab.build.args = [
-          "-lualatex"
-          "-pvc"
-          "-synctex=1"
-          "%f"
-        ];
-      };
-      ts_ls = {
-        enable = true;
-        rootDir = "package.json";
+        settings.texlab.build.args = [ "-lualatex" "-pvc" "-synctex=1" "%f" ];
       };
       ltex = {
         enable = true;
         settings = {
-          enabled = [
-            "astro"
-            "html"
-            "latex"
-            "markdown"
-            "text"
-            "tex"
-            "gitcommit"
-          ];
+          enabled = [ "astro" "html" "latex" "markdown" "text" "tex" "gitcommit" ];
           completionEnabled = true;
           language = "en-US";
         };
       };
     };
+
     keymaps = {
       lspBuf = {
         "K" = "hover";
@@ -83,16 +62,14 @@
       ];
     };
   };
-  config = {
-    extraConfigLua = ''
-      -- for rust-analyzer https://github.com/neovim/neovim/issues/30985
-      for _, method in ipairs({ "textDocument/diagnostic", "workspace/diagnostic" }) do
-        local default_diagnostic_handler = vim.lsp.handlers[method]
-        vim.lsp.handlers[method] = function(err, result, context, config)
-          if err ~= nil and err.code == -32802 then return end
-          return default_diagnostic_handler(err, result, context, config)
-        end
+  extraConfigLua = ''
+    -- for rust-analyzer https://github.com/neovim/neovim/issues/30985
+    for _, method in ipairs({ "textDocument/diagnostic", "workspace/diagnostic" }) do
+      local default_diagnostic_handler = vim.lsp.handlers[method]
+      vim.lsp.handlers[method] = function(err, result, context, config)
+        if err ~= nil and err.code == -32802 then return end
+        return default_diagnostic_handler(err, result, context, config)
       end
-    '';
-  };
+    end
+  '';
 }
