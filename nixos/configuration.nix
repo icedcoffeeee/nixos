@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./texlive.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -100,13 +101,12 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget curl vim git gh xclip zip unzip xdg-utils
-    cmake ffmpeg cairo pango dconf2nix
-    llvmPackages_19.libcxxClang nodejs_23 bun
-    perl cargo rustc
+    cmake ffmpeg cairo pango dconf2nix nodejs_23 bun
+    llvmPackages_19.libcxxClang perl cargo rustc
     lazygit lazydocker ripgrep fastfetch popsicle
     imagemagick scrcpy kitty btop zathura
 
-    (python312.withPackages(p: with p; [
+    (python312.withPackages (p: with p; [
         numpy matplotlib pyqt6 ipython
     ]))
   ];
