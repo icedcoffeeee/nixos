@@ -43,7 +43,7 @@
 
   imports = [
     ./cmp.nix
-    ./conform.nix
+    ./formatter.nix
     ./lsp.nix
     ./multicursor.nix
     ./telescope.nix

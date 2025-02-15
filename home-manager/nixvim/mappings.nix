@@ -24,8 +24,8 @@
     }
     {
       mode = "n"; key = "<leader>f";
-      action.__raw = "require('conform').format";
-      options = { desc = "Toggle Flash Search"; };
+      action = "<cmd>Format<cr>";
+      options = { desc = "Format"; silent = true; };
     }
     {
       mode = [ "n" "x" "o" ]; key = "s";
