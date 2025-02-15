@@ -28,7 +28,7 @@
       options = { desc = "Format"; silent = true; };
     }
     {
-      mode = [ "n" "x" "o" ]; key = "s";
+      mode = [ "n" "x" "o" ]; key = "X";
       action.__raw = "function() require('flash').jump() end";
       options = { desc = "Flash"; };
     }

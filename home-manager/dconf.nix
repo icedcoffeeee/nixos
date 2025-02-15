@@ -5,8 +5,8 @@
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "${../custom/wallpaper.jpg}";
-      picture-uri-dark = "${../custom/wallpaper.jpg}";
+      picture-uri = "${../assets/wallpaper.jpg}";
+      picture-uri-dark = "${../assets/wallpaper.jpg}";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
@@ -51,7 +51,7 @@
       night-light-schedule-automatic = false;
       night-light-schedule-from = 0.0;
       night-light-schedule-until = 6.0;
-      night-light-temperature = mkUint32 1700;
+      night-light-temperature = mkUint32 2500;
     };
     "org/gnome/Console" = {
       use-system-font = false;

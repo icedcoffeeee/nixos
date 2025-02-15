@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ outputs, config, pkgs, ... }:
+{ outputs, config, pkgs, lib, ... }:
 
 {
   imports =
@@ -12,7 +12,7 @@
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.overlays = [ outputs.overlays.modifications ];
+  nixpkgs.overlays = (map (key: lib.getAttr key (import ./overlays.nix)) (lib.attrNames (import ./overlays.nix)));
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

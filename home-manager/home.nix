@@ -32,7 +32,7 @@
   home.file = {
     "kitty-onedark" = {
       enable = true;
-      source = ./../custom/kitty/kitty-onedark.conf;
+      source = ./../assets/kitty/kitty-onedark.conf;
       target = ".config/kitty/kitty-onedark.conf";
     };
     "autostart-zen" = {
