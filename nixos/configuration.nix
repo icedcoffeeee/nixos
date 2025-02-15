@@ -102,9 +102,13 @@
     wget curl vim git gh xclip zip unzip xdg-utils
     cmake ffmpeg cairo pango dconf2nix
     llvmPackages_19.libcxxClang nodejs_23 bun
-    python313 perl cargo rustc
+    perl cargo rustc
     lazygit lazydocker ripgrep fastfetch popsicle
     imagemagick scrcpy kitty btop zathura
+
+    (python312.withPackages(p: with p; [
+        numpy matplotlib pyqt6 ipython
+    ]))
   ];
 
   fonts.packages = with pkgs; [

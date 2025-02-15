@@ -35,8 +35,8 @@
       edge-tiling = true;
     };
     "org/gnome/mutter/keybindings" = {
-      toggle-tiled-left = [ "<Shift><Control>h" "<Shift><Control>Left" ];
-      toggle-tiled-right = [ "<Shift><Control>l" "<Shift><Control>Right" ];
+      toggle-tiled-left = [ "<Shift><Control>Left" ];
+      toggle-tiled-right = [ "<Shift><Control>Right" ];
     };
     "org/gnome/desktop/session" = { 
       idle-delay = mkUint32 0;
@@ -66,8 +66,8 @@
       move-to-workspace-4 = [ "<Shift><Super>4" ];
       show-desktop = [ "<Super>d" ];
       show-screenshot-ui = [ "<Shift><Super>s" ];
-      switch-windows = [ "<Alt>Tab" "<Super>Tab" ];
-      switch-windows-backward = [ "<Shift><Alt>Tab" "<Shift><Super>Tab" ];
+      switch-windows = [ "<Alt>Tab" ];
+      switch-windows-backward = [ "<Shift><Alt>Tab" ];
       toggle-maximized = [ "<Super>m" ];
       toggle-message-tray = [ "<Super>v" ];
     };
@@ -92,6 +92,9 @@
     };
     "org/gnome/nautilus/preferences" = {
       default-folder-viewer = "icon-view";
+    };
+    "org/gtk/gtk4/settings/file-chooser" = {
+      show-hidden = true;
     };
   };
 }

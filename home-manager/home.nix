@@ -25,14 +25,37 @@
   ];
 
   home.sessionVariables = {
-    EDITOR = "vim";
+    EDITOR = "nvim";
+    TERMINAL = "kitty";
   };
 
   home.file = {
-    "kitty-onedark.conf" = {
+    "kitty-onedark" = {
       enable = true;
       source = ./../custom/kitty/kitty-onedark.conf;
       target = ".config/kitty/kitty-onedark.conf";
+    };
+    "autostart-zen" = {
+      enable = true;
+      text = ''
+        [Desktop Entry]
+        Type=Application
+        Name=zen_browser
+        Exec=flatpak run app.zen_browser.zen
+        X-GNOME-Autostart-enabled=true
+      '';
+      target = ".config/autostart/autostart-zen.desktop";
+    };
+    "autostart-spotify" = {
+      enable = true;
+      text = ''
+        [Desktop Entry]
+        Type=Application
+        Name=spotify
+        Exec=flatpak run com.spotify.Client
+        X-GNOME-Autostart-enabled=true
+      '';
+      target = ".config/autostart/autostart-spotify.desktop";
     };
   };
 
@@ -76,6 +99,7 @@
     extensions = with pkgs.gnomeExtensions; [
       # { package = transparent-top-bar; }
       { package = fullscreen-avoider; }
+      { package = appindicator; }
     ];
     theme = {
       name = "Graphite-Dark-compact";
@@ -103,6 +127,22 @@
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
+
+  xdg.mimeApps = {
+    enable = true;
+    associations.added = {
+      "x-scheme-handler/http" = "firefox.desktop;app.zen_browser.zen.desktop";
+      "text/html" = "firefox.desktop;app.zen_browser.zen.desktop";
+      "application/xhtml+xml" = "firefox.desktop;app.zen_browser.zen.desktop";
+      "x-scheme-handler/https" = "firefox.desktop;app.zen_browser.zen.desktop";
+    };
+    defaultApplications = {
+      "x-scheme-handler/http" = "app.zen_browser.zen.desktop";
+      "text/html" = "app.zen_browser.zen.desktop";
+      "application/xhtml+xml" = "app.zen_browser.zen.desktop";
+      "x-scheme-handler/https" = "app.zen_browser.zen.desktop";
+    };
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "24.11";
