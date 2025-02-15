@@ -100,7 +100,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget curl vim git gh xclip zip unzip xdg-utils
+    wget tree curl vim git gh xclip zip unzip xdg-utils
     cmake ffmpeg cairo pango dconf2nix nodejs_23 bun
     llvmPackages_19.libcxxClang perl cargo rustc
     lazygit lazydocker ripgrep fastfetch popsicle
