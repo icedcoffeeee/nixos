@@ -69,6 +69,7 @@
       ga = "git add";
       gc = "git commit";
       gs = "git status";
+      ld = "sudo lazydocker";
       lg = "lazygit";
       ll = "ls -alF";
       mk = "mkdir -p";

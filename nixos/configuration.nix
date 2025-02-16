@@ -105,6 +105,7 @@
     llvmPackages_19.libcxxClang perl cargo rustc
     lazygit lazydocker ripgrep fastfetch popsicle
     imagemagick scrcpy kitty btop zathura
+    docker docker-compose
 
     (python312.withPackages (p: with p; [
         numpy matplotlib pyqt6 ipython
@@ -127,6 +128,12 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  systemd.services.docker-daemon = {
+    path = with pkgs; [ docker ];
+    script = "dockerd";
+    wantedBy = [ "multi-user.target" ];
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
