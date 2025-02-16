@@ -49,7 +49,6 @@
         "gi" = "implementation";
         "go" = "type_definition";
         "gr" = "references";
-        "<C-h>" = "signature_help";
         "<leader>rn" = "rename";
         "<leader>ca" = "code_action";
       };
@@ -59,10 +58,13 @@
       };
       extra = [ 
         { key = "<m-l>"; action = "<cmd>LspRestart<cr>"; }
+        { key = "<c-h>"; action.__raw = "vim.lsp.buf.signature_help"; mode = [ "i" "s" ]; }
       ];
     };
   };
   extraConfigLua = ''
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border="single" })
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border="single" })
     -- for rust-analyzer https://github.com/neovim/neovim/issues/30985
     for _, method in ipairs({ "textDocument/diagnostic", "workspace/diagnostic" }) do
       local default_diagnostic_handler = vim.lsp.handlers[method]

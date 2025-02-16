@@ -42,34 +42,29 @@
         ];
 
         window = {
-          completion = { border = "solid"; };
-          documentation = { border = "solid"; };
+          completion.__raw = "cmp.config.window.bordered()";
+          documentation.__raw = "cmp.config.window.bordered()";
         };
 
         mapping = {
-          "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-          "<C-j>" = "cmp.mapping.select_next_item()";
-          "<C-k>" = "cmp.mapping.select_prev_item()";
-          "<C-e>" = "cmp.mapping.abort()";
-          "<C-b>" = "cmp.mapping.scroll_docs(-4)";
-          "<C-f>" = "cmp.mapping.scroll_docs(4)";
-          "<C-Space>" = "cmp.mapping.complete()";
+          "<S-Tab>" = "cmp.mapping.select_prev_item(cmp_select)";
+          "<Tab>" = "cmp.mapping.select_next_item(cmp_select)";
           "<CR>" = "cmp.mapping.confirm({ select = true })";
-          "<S-CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
-          "<C-l>" = ''
-            cmp.mapping(function()
-                if luasnip.expand_or_locally_jumpable() then
-                luasnip.expand_or_jump()
-                end
-                end, { 'i', 's' })
-            '';
-          "<C-h>" = ''
-            cmp.mapping(function()
-                if luasnip.locally_jumpable(-1) then
-                luasnip.jump(-1)
-                end
-                end, { 'i', 's' })
-            '';
+          "<C-k>" = "cmp.mapping.complete()";
+          # Scroll up and down the documentation window
+          "<C-u>" = "cmp.mapping.scroll_docs(-4)";
+          "<C-d>" = "cmp.mapping.scroll_docs(4)";
+          # Luasnip
+          "<C-l>" = "cmp.mapping(function(fallback)
+            if require('luasnip').locally_jumpable(1)
+            then require('luasnip').jump(1)
+            else fallback() end
+          end, {'i','s'})";
+          "<C-j>" = "cmp.mapping(function(fallback)
+            if require('luasnip').locally_jumpable(-1)
+            then require('luasnip').jump(-1)
+            else fallback() end
+          end, {'i','s'})";
         };
       };
     };

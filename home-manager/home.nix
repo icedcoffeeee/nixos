@@ -136,12 +136,14 @@
       "text/html" = "firefox.desktop;app.zen_browser.zen.desktop";
       "application/xhtml+xml" = "firefox.desktop;app.zen_browser.zen.desktop";
       "x-scheme-handler/https" = "firefox.desktop;app.zen_browser.zen.desktop";
+      "application/pdf" = "org.gnome.Evince.desktop";
     };
     defaultApplications = {
       "x-scheme-handler/http" = "app.zen_browser.zen.desktop";
       "text/html" = "app.zen_browser.zen.desktop";
       "application/xhtml+xml" = "app.zen_browser.zen.desktop";
       "x-scheme-handler/https" = "app.zen_browser.zen.desktop";
+      "application/pdf" = "org.gnome.Evince.desktop";
     };
   };
 
