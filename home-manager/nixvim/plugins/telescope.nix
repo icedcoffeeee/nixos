@@ -11,7 +11,11 @@
       pickers = {
         find_files = {
           hidden = true;
-          find_command = [ "rg" "--files" "--glob" "!{.git/*,.svelte-kit/*,target/*,node_modules/*}" "--path-separator" "/" ];
+          find_command = [
+            "rg" "--files" "--glob"
+            "!{.git/*,.svelte-kit/*,target/*,node_modules/*}"
+            "--path-separator" "/"
+          ];
         };
       };
     };
@@ -41,22 +45,22 @@
         options = { desc = "Fuzzily search in current buffer"; expr = true; };
       };
       "<leader>s/" = {
-	action = ''
+        action = ''
           function()
             builtin.live_grep({
               grep_open_files = true,
               prompt_title = "Live Grep in Open Files",
             })
           end
-        '';
-	options = { desc = "Search in Open Files"; expr = true; };
+          '';
+        options = { desc = "Search in Open Files"; expr = true; };
       };
       "<leader>sn" = {
         action = ''
           function()
             builtin.find_files({ cwd = vim.fn.stdpath("config") })
           end
-        '';
+          '';
         options ={ desc = "Search Neovim files"; expr = true; };
       };
     };

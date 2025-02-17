@@ -9,7 +9,6 @@
     indent-blankline.enable = true;
     luasnip.enable = true;
     nvim-autopairs.enable = true;
-    nvim-tree.enable = true;
     oil.enable = true;
     transparent.enable = true;
     treesitter.enable = true;
@@ -37,6 +36,21 @@
           return "%2l:%-2v"
           end
           '';
+      };
+    };
+    nvim-tree = {
+      enable = true;
+      view = {
+        side = "right";
+        number = true;
+        relativenumber = true;
+      };
+      actions = {
+        expandAll.exclude = [
+          ".git"
+            "node_modules"
+            ".svelte-kit"
+        ];
       };
     };
   };

@@ -29,35 +29,6 @@
     TERMINAL = "kitty";
   };
 
-  home.file = {
-    "kitty-onedark" = {
-      enable = true;
-      source = ./../assets/kitty/kitty-onedark.conf;
-      target = ".config/kitty/kitty-onedark.conf";
-    };
-    "autostart-zen" = {
-      enable = true;
-      text = ''
-        [Desktop Entry]
-        Type=Application
-        Name=zen_browser
-        Exec=flatpak run app.zen_browser.zen
-        X-GNOME-Autostart-enabled=true
-      '';
-      target = ".config/autostart/autostart-zen.desktop";
-    };
-    "autostart-spotify" = {
-      enable = true;
-      text = ''
-        [Desktop Entry]
-        Type=Application
-        Name=spotify
-        Exec=flatpak run com.spotify.Client
-        X-GNOME-Autostart-enabled=true
-      '';
-      target = ".config/autostart/autostart-spotify.desktop";
-    };
-  };
 
   # Enable home-manager
   programs.home-manager.enable = true;
@@ -69,12 +40,14 @@
       ga = "git add";
       gc = "git commit";
       gs = "git status";
-      ld = "sudo lazydocker";
+      ld = "lazydocker";
       lg = "lazygit";
       ll = "ls -alF";
       mk = "mkdir -p";
+      nrs = "nixos-rebuild switch --flake ~/nixos";
       ps = "ps -A|rg";
-      v  = "nvim";
+      s = "sudo ";
+      v = "nvim";
 
       open = "xdg-open";
       camset = "sudo modprobe v4l2loopback";
@@ -129,21 +102,40 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
-  xdg.mimeApps = {
-    enable = true;
-    associations.added = {
-      "x-scheme-handler/http" = "firefox.desktop;app.zen_browser.zen.desktop";
-      "text/html" = "firefox.desktop;app.zen_browser.zen.desktop";
-      "application/xhtml+xml" = "firefox.desktop;app.zen_browser.zen.desktop";
-      "x-scheme-handler/https" = "firefox.desktop;app.zen_browser.zen.desktop";
-      "application/pdf" = "org.gnome.Evince.desktop";
+  xdg = {
+    mimeApps = {
+      enable = true;
+      associations.added = {
+        "application/pdf" = "org.gnome.Evince.desktop";
+        "application/xhtml+xml" = "firefox.desktop;app.zen_browser.zen.desktop";
+        "text/html" = "firefox.desktop;app.zen_browser.zen.desktop";
+        "x-scheme-handler/http" = "firefox.desktop;app.zen_browser.zen.desktop";
+        "x-scheme-handler/https" = "firefox.desktop;app.zen_browser.zen.desktop";
+      };
+      defaultApplications = {
+        "application/pdf" = "org.gnome.Evince.desktop";
+        "application/xhtml+xml" = "app.zen_browser.zen.desktop";
+        "text/html" = "app.zen_browser.zen.desktop";
+        "x-scheme-handler/http" = "app.zen_browser.zen.desktop";
+        "x-scheme-handler/https" = "app.zen_browser.zen.desktop";
+      };
     };
-    defaultApplications = {
-      "x-scheme-handler/http" = "app.zen_browser.zen.desktop";
-      "text/html" = "app.zen_browser.zen.desktop";
-      "application/xhtml+xml" = "app.zen_browser.zen.desktop";
-      "x-scheme-handler/https" = "app.zen_browser.zen.desktop";
-      "application/pdf" = "org.gnome.Evince.desktop";
+    configFile = {
+      "kitty/kitty-onedark.conf".source = ./../assets/kitty/kitty-onedark.conf;
+      "autostart/autostart-zen.desktop".text = ''
+        [Desktop Entry]
+        Type=Application
+          Name=zen_browser
+          Exec=flatpak run app.zen_browser.zen
+          X-GNOME-Autostart-enabled=true
+      '';
+      "autostart/autostart-spotify.desktop".text = ''
+        [Desktop Entry]
+        Type=Application
+          Name=spotify
+          Exec=flatpak run com.spotify.Client
+          X-GNOME-Autostart-enabled=true
+      '';
     };
   };
 

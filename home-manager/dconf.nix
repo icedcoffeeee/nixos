@@ -35,8 +35,8 @@
       edge-tiling = true;
     };
     "org/gnome/mutter/keybindings" = {
-      toggle-tiled-left = [ "<Shift><Control>Left" ];
-      toggle-tiled-right = [ "<Shift><Control>Right" ];
+      toggle-tiled-left = [ "<Control><Super>Left" ];
+      toggle-tiled-right = [ "<Control><Super>Right" ];
     };
     "org/gnome/desktop/session" = { 
       idle-delay = mkUint32 0;
