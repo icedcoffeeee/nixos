@@ -31,14 +31,6 @@
         enable = true;
         settings.texlab.build.args = [ "-lualatex" "-pvc" "-synctex=1" "%f" ];
       };
-      ltex = {
-        enable = true;
-        settings = {
-          enabled = [ "astro" "html" "latex" "markdown" "text" "tex" "gitcommit" ];
-          completionEnabled = true;
-          language = "en-US";
-        };
-      };
     };
 
     keymaps = {
