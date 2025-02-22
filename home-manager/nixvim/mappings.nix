@@ -4,6 +4,7 @@
     { mode = "n"; key = "<leader>j"; action = "<cmd>BufferLineCyclePrev<cr>"; options = { desc = "Previous buffer"; silent = true; }; }
     { mode = "n"; key = "<leader>k"; action = "<cmd>BufferLineCycleNext<cr>"; options = { desc = "Next buffer"; silent = true; }; }
     { mode = "n"; key = "<leader>q"; action = "<cmd>bn|bd#<cr>"; options = { desc = "Delete buffer"; silent = true; }; }
+    { mode = "n"; key = "<leader>b"; action = "<cmd>BufferLineSortByDirectory<cr>"; options = { desc = "Sort buffelinee by directory"; silent = true; }; }
     { mode = "n"; key = "<leader>l"; action = ":vs term://bash<cr>a"; options = { desc = "Open vertical terminal"; silent = true; }; }
 
     { mode = "n"; key = "<c-h>"; action = "<c-w><c-h>"; options = { desc = "Move focus to the left window"; silent = true; }; }

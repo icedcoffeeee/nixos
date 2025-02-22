@@ -26,6 +26,9 @@
         "status-icons@gnome-shell-extensions.gcampax.github.com"
       ];
     };
+    "org/gnome/shell/keybindings" = {
+      focus-active-notification = [ "<Super>n" ];
+    };
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       enable-hot-corners = true;

@@ -74,6 +74,7 @@
       # { package = transparent-top-bar; }
       { package = fullscreen-avoider; }
       { package = appindicator; }
+      { package = pip-on-top; }
     ];
     theme = {
       name = "Graphite-Dark-compact";
