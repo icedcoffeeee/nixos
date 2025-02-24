@@ -104,7 +104,7 @@
     cmake ffmpeg cairo pango dconf2nix nodejs_23 bun
     llvmPackages_19.libcxxClang pandoc perl rustup
     lazygit lazydocker ripgrep fastfetch popsicle
-    imagemagick scrcpy kitty btop zathura
+    imagemagick scrcpy kitty btop zathura yazi
     docker docker-compose
 
     (python312.withPackages (p: with p; [

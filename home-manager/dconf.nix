@@ -76,10 +76,11 @@
     };
     "org/gnome/settings-daemon/plugins/media-keys" = {
       control-center = [ "<Super>i" ];
-      home = [ "<Super>f" ];
+      home = [];
       screensaver = [];
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
@@ -87,14 +88,10 @@
       command = "kitty";
       name = "kitty";
     };
-    "org/gnome/nautilus/icon-view" = {
-      default-zoom-level = "small";
-    };
-    "org/gnome/nautilus/list-view" = {
-      default-zoom-level = "small";
-    };
-    "org/gnome/nautilus/preferences" = {
-      default-folder-viewer = "icon-view";
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+      binding = "<Super>f";
+      command = "kitty yazi";
+      name = "yazi";
     };
     "org/gtk/gtk4/settings/file-chooser" = {
       show-hidden = true;

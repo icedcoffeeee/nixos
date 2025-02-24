@@ -57,6 +57,16 @@
         --camera-id=1 -m500
       '';
     };
+    bashrcExtra = ''
+      function y() {
+        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+        yazi "$@" --cwd-file="$tmp"
+        if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+          builtin cd -- "$cwd"
+        fi
+        rm -f -- "$tmp"
+      }
+    '';
   };
   programs.git = {
     enable = true;
@@ -136,6 +146,15 @@
           Name=spotify
           Exec=flatpak run com.spotify.Client
           X-GNOME-Autostart-enabled=true
+      '';
+      "yazi/flavors/onedark.yazi".source = pkgs.fetchgit {
+        url = "https://github.com/BennyOe/onedark.yazi";
+        rev = "fa1da70556a5654f5d40d063a95e55ecc63b3ef7";
+        sha256 = "sha256-SJdkLjF2i5/G0H/x9kTPXv/ozzMO1WhddWMjZi6+x3A=";
+      };
+      "yazi/theme.toml".text = ''
+        [flavor]
+        use = "onedark"
       '';
     };
   };
