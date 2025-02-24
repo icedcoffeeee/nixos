@@ -85,6 +85,7 @@
       { package = fullscreen-avoider; }
       { package = appindicator; }
       { package = pip-on-top; }
+      { package = clipboard-history; }
     ];
     theme = {
       name = "Graphite-Dark-compact";
