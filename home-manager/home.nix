@@ -19,7 +19,7 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
-    obsidian mpv easyeffects kitty-themes
+    obsidian vlc easyeffects kitty-themes
     discord telegram-desktop zapzap audacity kdenlive
     teams-for-linux zotero todoist onedrive
   ];
@@ -48,6 +48,7 @@
       ps = "ps -A|rg";
       s = "sudo ";
       v = "nvim";
+      vx = "cd ~/nixos/ && nvim";
 
       open = "xdg-open";
       camset = "sudo modprobe v4l2loopback";
@@ -58,6 +59,10 @@
       '';
     };
     bashrcExtra = ''
+      export PATH=$PATH:/home/icedtea/.local/bin
+      export PATH=$PATH:/home/icedtea/.local/bin
+      export PATH=$PATH:/home/icedtea/.bun/bin
+
       function y() {
         local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
         yazi "$@" --cwd-file="$tmp"

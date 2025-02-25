@@ -108,7 +108,7 @@
     docker docker-compose
 
     (python312.withPackages (p: with p; [
-        numpy matplotlib pyqt6 ipython
+        numpy matplotlib pyqt6 ipython sympy
     ]))
   ];
 

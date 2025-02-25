@@ -13,6 +13,7 @@ let
   commands = builtins.concatStringsSep "\n" (map command flatpaks);
 in {
   services.flatpak.enable = true;
+  systemd.services.flatpak-system-helper.enable = false;
   systemd.services.flatpak-install = {
     path = with pkgs; [ bash curl flatpak perl ripgrep unzip util-linux zip ];
     script = ''

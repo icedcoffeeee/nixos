@@ -71,6 +71,8 @@
       show-screenshot-ui = [ "<Shift><Super>s" ];
       switch-windows = [ "<Alt>Tab" ];
       switch-windows-backward = [ "<Shift><Alt>Tab" ];
+      switch-applications = [];
+      switch-applications-backward = [];
       toggle-maximized = [ "<Super>m" ];
       toggle-message-tray = [ "<Super>v" ];
     };

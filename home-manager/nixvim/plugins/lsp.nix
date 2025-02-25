@@ -7,7 +7,6 @@
       biome.enable = true;
       clangd.enable = true;
       emmet_language_server.enable = true;
-      svelte.enable = true;
       ts_ls.enable = true;
 
       lua_ls = {
@@ -22,6 +21,19 @@
         enable = true;
         installCargo = false;
         installRustc = false;
+      };
+      svelte = {
+        enable = true;
+        extraOptions.on_attach.__raw = ''
+          function(client)
+            vim.api.nvim_create_autocmd("BufWritePost", {
+              pattern = { "*.js", "*.ts" },
+              callback = function(ctx)
+                client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+              end,
+            })
+          end
+        '';
       };
       tailwindcss = {
         enable = true;
