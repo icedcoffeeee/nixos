@@ -12,6 +12,9 @@
       ./android.nix
     ];
 
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.overlays = (map (key: lib.getAttr key (import ./overlays.nix)) (lib.attrNames (import ./overlays.nix)));
 
@@ -86,17 +89,11 @@
   users.users.icedtea = {
     isNormalUser = true;
     description = "icedtea";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    packages = with pkgs; [ ];
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  virtualisation.docker.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -106,7 +103,7 @@
     llvmPackages_19.libcxxClang pandoc perl rustup
     lazygit lazydocker ripgrep fastfetch popsicle
     imagemagick scrcpy kitty btop zathura yazi
-    docker docker-compose
+    docker-compose
 
     (python312.withPackages (p: with p; [
         numpy matplotlib pyqt6 ipython sympy
@@ -129,12 +126,6 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  systemd.services.docker-daemon = {
-    path = with pkgs; [ docker ];
-    script = "dockerd";
-    wantedBy = [ "multi-user.target" ];
-  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
