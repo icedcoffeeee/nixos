@@ -89,11 +89,12 @@
   users.users.icedtea = {
     isNormalUser = true;
     description = "icedtea";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "adbusers" ];
     packages = with pkgs; [ ];
   };
 
   virtualisation.docker.enable = true;
+  programs.adb.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
