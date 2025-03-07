@@ -62,6 +62,7 @@
       export PATH=$PATH:/home/icedtea/.local/bin
       export PATH=$PATH:/home/icedtea/.local/bin
       export PATH=$PATH:/home/icedtea/.bun/bin
+      export PATH=$PATH:/home/icedtea/go/bin
 
       function y() {
         local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd

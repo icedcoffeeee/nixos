@@ -9,7 +9,6 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./texlive.nix
-      ./android.nix
     ];
 
   # Allow unfree packages
@@ -100,8 +99,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget tree curl vim git gh xclip zip unzip xdg-utils
-    cmake ffmpeg cairo pango dconf2nix nodejs_23 bun
-    llvmPackages_19.libcxxClang pandoc perl rustup
+    gnumake cmake ffmpeg cairo pango dconf2nix nodejs_23 bun
+    llvmPackages_19.libcxxClang pandoc perl rustup go
     lazygit lazydocker ripgrep fastfetch popsicle
     imagemagick scrcpy kitty btop zathura yazi
     docker-compose
