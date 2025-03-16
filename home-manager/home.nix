@@ -72,6 +72,8 @@
         fi
         rm -f -- "$tmp"
       }
+
+      gitc() { repo=$1; shift 1; git clone https://github.com/$1.git $@; }
     '';
   };
   programs.git = {
