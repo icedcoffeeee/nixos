@@ -1,9 +1,13 @@
 { nixpkgs, system }: let
-  pkgs = import nixpkgs { inherit system; };
-  androidSdk = pkgs
+  pkgs = import nixpkgs {
+    inherit system;
+    config.allowUnfree = true;
+    config.android_sdk.accept_license = true;
+  };
+  androidSdk = (pkgs
     .androidenv
     .composeAndroidPackages
-      { includeNDK = true; abiVersions = [ "x86_64" ]; }
+      { includeNDK = true; abiVersions = [ "x86_64" ]; })
     .androidsdk;
 in with pkgs;
 mkShell rec {
