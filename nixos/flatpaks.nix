@@ -22,10 +22,10 @@ in {
 
       ${commands}
 
-      if [[ -z $(flatpak list --app|rg spotify) ]]; then
-        flatpak install com.spotify.Client
-        bash <(curl -sSL https://spotx-official.github.io/run.sh)
-      fi
+      # if [[ -z $(flatpak list --app|rg spotify) ]]; then
+      #   flatpak install com.spotify.Client
+      #   bash <(curl -sSL https://spotx-official.github.io/run.sh)
+      # fi
     '';
     wantedBy = [ "multi-user.target" ];
   };

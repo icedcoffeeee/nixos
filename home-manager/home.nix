@@ -19,7 +19,7 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
-    obsidian vlc easyeffects kitty-themes
+    obsidian vlc easyeffects kitty-themes youtube-music
     discord telegram-desktop zapzap audacity kdenlive
     teams-for-linux zotero todoist onedrive
   ];
@@ -45,6 +45,7 @@
       ll = "ls -alF";
       mk = "mkdir -p";
       nrs = "nixos-rebuild switch --flake ~/nixos";
+      ncg = "nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       ps = "ps -A|rg";
       s = "sudo ";
       v = "nvim";
@@ -149,13 +150,13 @@
           Exec=flatpak run app.zen_browser.zen
           X-GNOME-Autostart-enabled=true
       '';
-      "autostart/autostart-spotify.desktop".text = ''
-        [Desktop Entry]
-        Type=Application
-          Name=spotify
-          Exec=flatpak run com.spotify.Client
-          X-GNOME-Autostart-enabled=true
-      '';
+      # "autostart/autostart-spotify.desktop".text = ''
+      #   [Desktop Entry]
+      #   Type=Application
+      #     Name=spotify
+      #     Exec=flatpak run com.spotify.Client
+      #     X-GNOME-Autostart-enabled=true
+      # '';
       "yazi/flavors/onedark.yazi".source = pkgs.fetchgit {
         url = "https://github.com/BennyOe/onedark.yazi";
         rev = "fa1da70556a5654f5d40d063a95e55ecc63b3ef7";

@@ -18,7 +18,8 @@
       favorite-apps = [
         "org.gnome.Nautilus.desktop"
         "app.zen_browser.zen.desktop"
-        "com.spotify.Client.desktop"
+        # "com.spotify.Client.desktop"
+        "youtube-music.desktop"
         "kitty.desktop"
       ];
       enabled-extensions = [
