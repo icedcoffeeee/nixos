@@ -1,7 +1,8 @@
 { pkgs, ... }:
 let
-  unzip = "${pkgs.unzip}/bin/unzip";
+  pdf = "${pkgs.texliveBasic}/bin/pdflatex";
   rg = "${pkgs.ripgrep}/bin/rg";
+  unzip = "${pkgs.unzip}/bin/unzip";
   texpkg = { name, url, sha256, version }: [(
     pkgs.runCommand name {
       src = pkgs.fetchurl { inherit url sha256; };
@@ -12,6 +13,10 @@ let
       };
     } ''
     ${unzip} $src -d ${name}
+    if [[ ! $(${rg} --files|${rg} sty) ]]; then
+      mv $(${rg} --files|${rg} 'ins|dtx') .
+      ${pdf} *.ins
+    fi
     mkdir -p $out/tex/latex/${name}
     cp $(${rg} --files|${rg} sty) $out/tex/latex/${name}
     ''
@@ -21,7 +26,7 @@ in {
   config = {
     environment.systemPackages = with pkgs; [
       (texlive.combine {
-        inherit (texlive) scheme-medium
+        inherit (texlive) scheme-medium standalone
         fontaxes xstring newtx ebgaramond-maths
         xltabular ltablex makecell enumitem relsize
         blindtext apacite pgfplots chngcntr;
