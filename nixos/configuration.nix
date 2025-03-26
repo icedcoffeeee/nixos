@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./texlive.nix
+      # ./texlive.nix
     ];
 
   # Allow unfree packages
@@ -104,7 +104,7 @@
     llvmPackages_19.libcxxClang pandoc perl rustup go
     lazygit lazydocker ripgrep fastfetch popsicle
     imagemagick scrcpy kitty btop zathura yazi
-    docker-compose
+    docker-compose texliveFull
 
     (python312.withPackages (p: with p; [
         numpy matplotlib pyqt6 ipython scipy sympy
