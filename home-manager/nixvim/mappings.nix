@@ -20,9 +20,14 @@
     # plugins
     {
       mode = "n"; key = "<c-b>";
-      action.__raw = "function() require('nvim-tree.api').tree.toggle({ find_file = true }) end";
-      options = { desc = "Toggle NvimTree"; silent = true; noremap = true; nowait = true; };
+      action.__raw = "require('mini.files').open";
+      options = { desc = "Toggle Mini Files"; silent = true; noremap = true; nowait = true; };
     }
+    # {
+    #   mode = "n"; key = "<c-b>";
+    #   action.__raw = "function() require('nvim-tree.api').tree.toggle({ find_file = true }) end";
+    #   options = { desc = "Toggle NvimTree"; silent = true; noremap = true; nowait = true; };
+    # }
     {
       mode = "n"; key = "<leader>f";
       action = "<cmd>Format<cr>";

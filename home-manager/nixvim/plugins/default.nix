@@ -9,7 +9,7 @@
     indent-blankline.enable = true;
     luasnip.enable = true;
     nvim-autopairs.enable = true;
-    oil.enable = true;
+    # oil.enable = true;
     transparent.enable = true;
     treesitter.enable = true;
     ts-autotag.enable = true;
@@ -30,29 +30,32 @@
       enable = true;
       modules = {
         ai.n_lines = 500;
-        statusline.use_icons = true;
-        statusline.section_location = ''
-          function()
-          return "%2l:%-2v"
-          end
+        files = {};
+        statusline = {
+          use_icons = true;
+          section_location = ''
+            function()
+              return "%2l:%-2v"
+            end
           '';
+        };
       };
     };
-    nvim-tree = {
-      enable = true;
-      view = {
-        side = "right";
-        number = true;
-        relativenumber = true;
-      };
-      actions = {
-        expandAll.exclude = [
-          ".git"
-            "node_modules"
-            ".svelte-kit"
-        ];
-      };
-    };
+    # nvim-tree = {
+    #   enable = true;
+    #   view = {
+    #     side = "right";
+    #     number = true;
+    #     relativenumber = true;
+    #   };
+    #   actions = {
+    #     expandAll.exclude = [
+    #       ".git"
+    #         "node_modules"
+    #         ".svelte-kit"
+    #     ];
+    #   };
+    # };
   };
 
   imports = [
