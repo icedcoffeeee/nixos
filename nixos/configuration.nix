@@ -101,7 +101,7 @@
   environment.systemPackages = with pkgs; [
     wget tree curl vim git gh xclip zip unzip xdg-utils
     gnumake cmake ffmpeg cairo pango dconf2nix nodejs_23 bun
-    llvmPackages_19.libcxxClang pandoc perl rustup go
+    gcc14 clang-tools pandoc perl rustup go
     lazygit lazydocker ripgrep fastfetch popsicle
     imagemagick scrcpy kitty btop zathura yazi
     docker-compose texliveFull

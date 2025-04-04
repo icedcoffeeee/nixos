@@ -165,6 +165,10 @@
       "yazi/theme.toml".text = ''
         [flavor]
         use = "onedark"
+        [opener]
+        open = [
+          { run = 'xdg-open "$@"', orphan = true, desc = "Open", for = "unix" }
+        ]
       '';
     };
   };
