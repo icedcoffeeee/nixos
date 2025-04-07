@@ -142,34 +142,14 @@
       };
     };
     configFile = {
-      "kitty/kitty-onedark.conf".source = ./../assets/kitty/kitty-onedark.conf;
-      "autostart/autostart-zen.desktop".text = ''
-        [Desktop Entry]
-        Type=Application
-          Name=zen_browser
-          Exec=flatpak run app.zen_browser.zen
-          X-GNOME-Autostart-enabled=true
-      '';
-      # "autostart/autostart-spotify.desktop".text = ''
-      #   [Desktop Entry]
-      #   Type=Application
-      #     Name=spotify
-      #     Exec=flatpak run com.spotify.Client
-      #     X-GNOME-Autostart-enabled=true
-      # '';
+      "kitty/kitty-onedark.conf".source = ../assets/kitty/kitty-onedark.conf;
+      "autostart/autostart-zen.desktop".source = ../assets/autostart-zen.desktop;
+      "yazi/theme.toml".source = ../assets/yazi-theme.toml;
       "yazi/flavors/onedark.yazi".source = pkgs.fetchgit {
         url = "https://github.com/BennyOe/onedark.yazi";
         rev = "fa1da70556a5654f5d40d063a95e55ecc63b3ef7";
         sha256 = "sha256-SJdkLjF2i5/G0H/x9kTPXv/ozzMO1WhddWMjZi6+x3A=";
       };
-      "yazi/theme.toml".text = ''
-        [flavor]
-        use = "onedark"
-        [opener]
-        open = [
-          { run = 'xdg-open "$@"', orphan = true, desc = "Open", for = "unix" }
-        ]
-      '';
     };
   };
 
