@@ -61,7 +61,7 @@
     };
     bashrcExtra = ''
       export PATH=$PATH:/home/icedtea/.local/bin
-      export PATH=$PATH:/home/icedtea/.local/bin
+      export PATH=$PATH:/home/icedtea/.cargo/bin
       export PATH=$PATH:/home/icedtea/.bun/bin
       export PATH=$PATH:/home/icedtea/go/bin
 
