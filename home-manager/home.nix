@@ -139,6 +139,11 @@
         "text/html" = "app.zen_browser.zen.desktop";
         "x-scheme-handler/http" = "app.zen_browser.zen.desktop";
         "x-scheme-handler/https" = "app.zen_browser.zen.desktop";
+        "image/jpeg" = "org.gnome.Loupe.desktop";
+        "image/png" = "org.gnome.Loupe.desktop";
+        "image/gif" = "org.gnome.Loupe.desktop";
+        "image/webp" = "org.gnome.Loupe.desktop";
+        "image/tiff" = "org.gnome.Loupe.desktop";
       };
     };
     configFile = {

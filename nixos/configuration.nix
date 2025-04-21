@@ -103,8 +103,8 @@
     wget tree curl vim git gh xclip zip unzip xdg-utils
     gnumake cmake ffmpeg cairo pango dconf2nix nodejs_23 bun
     lazygit lazydocker ripgrep fastfetch popsicle
-    imagemagick inkscape gimp scrcpy kitty btop zathura yazi
     gcc14 clang-tools pandoc perl rustup go gdb
+    imagemagick inkscape krita scrcpy kitty btop zathura yazi
     docker-compose texliveFull
 
     (python312.withPackages (p: with p; [
