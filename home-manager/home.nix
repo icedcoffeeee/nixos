@@ -21,7 +21,7 @@
   home.packages = with pkgs; [
     obsidian vlc easyeffects kitty-themes youtube-music
     discord telegram-desktop zapzap audacity kdenlive
-    teams-for-linux zotero todoist onedrive
+    thunderbird teams-for-linux zotero todoist onedrive
   ];
 
   home.sessionVariables = {
