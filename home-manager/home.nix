@@ -1,14 +1,9 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{ inputs, lib, config, pkgs, ... }: {
   imports = [
     ./dconf.nix
+    ./xdg.nix
     ./nixvim
   ];
 
@@ -124,41 +119,6 @@
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
-
-  xdg = {
-    mimeApps = {
-      enable = true;
-      associations.added = {
-        "application/pdf" = "org.gnome.Evince.desktop";
-        "application/xhtml+xml" = "firefox.desktop;app.zen_browser.zen.desktop";
-        "text/html" = "firefox.desktop;app.zen_browser.zen.desktop";
-        "x-scheme-handler/http" = "firefox.desktop;app.zen_browser.zen.desktop";
-        "x-scheme-handler/https" = "firefox.desktop;app.zen_browser.zen.desktop";
-      };
-      defaultApplications = {
-        "application/pdf" = "org.gnome.Evince.desktop";
-        "application/xhtml+xml" = "app.zen_browser.zen.desktop";
-        "text/html" = "app.zen_browser.zen.desktop";
-        "x-scheme-handler/http" = "app.zen_browser.zen.desktop";
-        "x-scheme-handler/https" = "app.zen_browser.zen.desktop";
-        "image/jpeg" = "org.gnome.Loupe.desktop";
-        "image/png" = "org.gnome.Loupe.desktop";
-        "image/gif" = "org.gnome.Loupe.desktop";
-        "image/webp" = "org.gnome.Loupe.desktop";
-        "image/tiff" = "org.gnome.Loupe.desktop";
-      };
-    };
-    configFile = {
-      "kitty/kitty-onedark.conf".source = ../assets/kitty/kitty-onedark.conf;
-      "autostart/autostart-zen.desktop".source = ../assets/autostart-zen.desktop;
-      "yazi/theme.toml".source = ../assets/yazi-theme.toml;
-      "yazi/flavors/onedark.yazi".source = pkgs.fetchgit {
-        url = "https://github.com/BennyOe/onedark.yazi";
-        rev = "fa1da70556a5654f5d40d063a95e55ecc63b3ef7";
-        sha256 = "sha256-SJdkLjF2i5/G0H/x9kTPXv/ozzMO1WhddWMjZi6+x3A=";
-      };
-    };
-  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "24.11";
