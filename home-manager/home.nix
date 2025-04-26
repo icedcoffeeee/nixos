@@ -35,20 +35,23 @@
       ga = "git add";
       gc = "git commit";
       gs = "git status";
+      gd = "git diff --cached";
       ld = "lazydocker";
       lg = "lazygit";
       ll = "ls -alF";
       mk = "mkdir -p";
+      ps = "ps -A|rg";
+
       nrs = "nixos-rebuild switch --flake ~/nixos";
       ncg = "nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
-      ps = "ps -A|rg";
-      s = "sudo ";
-      v = "nvim";
+
+      s  = "sudo ";
+      v  = "nvim";
       vx = "cd ~/nixos/ && nvim";
 
-      open = "xdg-open";
+      open   = "xdg-open";
       camset = "sudo modprobe v4l2loopback";
-      cam = ''
+      cam    = ''
         scrcpy --v4l2-sink=/dev/video0 \
         --video-source=camera --no-audio \
         --camera-id=1 -m500
