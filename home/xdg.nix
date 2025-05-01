@@ -78,7 +78,7 @@
       };
     };
     configFile = {
-      "kitty/kitty-onedark.conf".source        = ../assets/kitty/kitty-onedark.conf;
+      "kitty/kitty-onedark.conf".source        = ../assets/kitty-onedark.conf;
       "autostart/autostart-zen.desktop".source = ../assets/autostart-zen.desktop;
       "yazi/theme.toml".source                 = ../assets/yazi-theme.toml;
       "yazi/flavors/onedark.yazi".source       = pkgs.fetchgit {
