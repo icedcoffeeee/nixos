@@ -28,7 +28,7 @@ in
     inputs.hydenix.inputs.home-manager.nixosModules.home-manager
     ./hardware.nix
     inputs.hydenix.lib.nixOsModules
-    ./modules/system
+    ./system.nix
 
     # === GPU-specific configurations ===
 
@@ -71,7 +71,7 @@ in
           inputs.hydenix.lib.homeModules
           # Nix-index-database - for comma and command-not-found
           inputs.nix-index-database.hmModules.nix-index
-          ./modules/hm
+          ./home
         ];
       };
   };

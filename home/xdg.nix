@@ -4,8 +4,6 @@
       evince         = "org.gnome.Evince.desktop";
       zen            = "app.zen_browser.zen.desktop";
       loupe          = "org.gnome.Loupe.desktop;";
-      thunderbird    = "userapp-Thunderbird-AN5A52.desktop";
-      thunderbirdcal = "userapp-Thunderbird-8E3E52.desktop";
     in {
       enable = true;
       associations.added = {
@@ -14,10 +12,6 @@
         "text/html"                   = zen;
         "x-scheme-handler/http"       = zen;
         "x-scheme-handler/https"      = zen;
-        "x-scheme-handler/mailto"     = thunderbird;
-        "x-scheme-handler/mid"        = thunderbird;
-        "x-scheme-handler/webcal"     = thunderbirdcal;
-        "x-scheme-handler/webcals"    = thunderbirdcal;
         "image/png"                   = loupe;
         "image/gif"                   = loupe;
         "image/webp"                  = loupe;
@@ -46,13 +40,6 @@
         "text/html"                   = zen;
         "x-scheme-handler/http"       = zen;
         "x-scheme-handler/https"      = zen;
-        "x-scheme-handler/mailto"     = thunderbird;
-        "message/rfc822"              = thunderbird;
-        "x-scheme-handler/mid"        = thunderbird;
-        "x-scheme-handler/webcal"     = thunderbirdcal;
-        "text/calendar"               = thunderbirdcal;
-        "application/x-extension-ics" = thunderbirdcal;
-        "x-scheme-handler/webcals"    = thunderbirdcal;
         "image/jpeg"                  = loupe;
         "image/png"                   = loupe;
         "image/gif"                   = loupe;

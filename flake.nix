@@ -1,5 +1,5 @@
 {
-  description = "template for hydenix";
+  description = "icedtea's hydenix";
 
   inputs = {
     # User's nixpkgs - for user packages
@@ -29,12 +29,8 @@
 
       hydenixConfig = inputs.hydenix.inputs.hydenix-nixpkgs.lib.nixosSystem {
         inherit (inputs.hydenix.lib) system;
-        specialArgs = {
-          inherit inputs;
-        };
-        modules = [
-          ./configuration.nix
-        ];
+        specialArgs = { inherit inputs; };
+        modules = [ ./nixos ];
       };
 
     in

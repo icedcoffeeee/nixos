@@ -1,6 +1,6 @@
 { ... }:
 {
-  programs.bash = {
+  programs.zsh = {
     enable = true;
     shellAliases = {
       ga = "git add";
@@ -29,7 +29,7 @@
         --camera-id=1 -m500
         '';
     };
-    bashrcExtra = ''
+    envExtra = ''
       export PATH=$PATH:/home/icedtea/.local/bin
       export PATH=$PATH:/home/icedtea/.cargo/bin
       export PATH=$PATH:/home/icedtea/.bun/bin
@@ -44,9 +44,7 @@
         rm -f -- "$tmp"
       }
 
-    gitc() { repo=$1; shift 1; git clone https://github.com/$1.git $@; }
-
-    fastfetch
+    gclone() { repo=$1; shift 1; git clone https://github.com/$1.git $@; }
       '';
   };
 }
