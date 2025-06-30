@@ -1,44 +1,45 @@
 {
-  description = "icedtea's nixos";
+  description = "template for hydenix";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-    flatpak.url = "github:gmodena/nix-flatpak";
+    # User's nixpkgs - for user packages
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    # Hydenix and its nixpkgs - kept separate to avoid conflicts
+    hydenix = {
+      # Available inputs:
+      # Main: github:richen604/hydenix
+      # Dev: github:richen604/hydenix/dev
+      # Commit: github:richen604/hydenix/<commit-hash>
+      # Version: github:richen604/hydenix/v1.0.0
+      url = "github:richen604/hydenix";
+    };
 
-    nixvim.url = "github:nix-community/nixvim/nixos-24.11";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    # Nix-index-database - for comma and command-not-found
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, flake-utils, nixvim, home-manager, ... } @ inputs: let
-    inherit (self) outputs;
+  outputs =
+    { ... }@inputs:
+    let
+      HOSTNAME = "hydenix";
 
-    system = "x86_64-linux";
-    home   = home-manager.nixosModules.home-manager;
-    nxvim  = nixvim.homeManagerModules.nixvim;
-  in {
-    nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs outputs; };
+      hydenixConfig = inputs.hydenix.inputs.hydenix-nixpkgs.lib.nixosSystem {
+        inherit (inputs.hydenix.lib) system;
+        specialArgs = {
+          inherit inputs;
+        };
         modules = [
-          ./config
-          ./config/flatpaks.nix
-
-          home { home-manager = {
-            extraSpecialArgs = { inherit inputs outputs; };
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.icedtea.imports = [ ./home nxvim ];
-          }; }
+          ./configuration.nix
         ];
       };
-    };
 
-    devShells.${system} = {
-      bevy    = import ./shells/bevy.nix    { inherit nixpkgs system; };
-      android = import ./shells/android.nix { inherit nixpkgs system; };
+    in
+    {
+      nixosConfigurations.nixos = hydenixConfig;
+      nixosConfigurations.${HOSTNAME} = hydenixConfig;
     };
-  };
 }
