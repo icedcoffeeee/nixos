@@ -9,7 +9,7 @@
     gcc14 clang-tools pandoc perl rustup go gdb tree-sitter
     lazygit lazydocker ripgrep fastfetch popsicle libreoffice
     imagemagick inkscape krita scrcpy kitty btop zathura yazi
-    docker-compose texliveFull
+    docker-compose texliveFull evince loupe hyprshade
 
     (python312.withPackages (p: with p; [
         numpy matplotlib pyqt6 ipython scipy sympy

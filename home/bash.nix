@@ -44,7 +44,10 @@
         rm -f -- "$tmp"
       }
 
-    gclone() { repo=$1; shift 1; git clone https://github.com/$1.git $@; }
+      function ghc() {
+        repo=$1; shift 1;
+        git clone "https://github.com/$repo.git" $@;
+      }
       '';
   };
 }

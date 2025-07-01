@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [
@@ -22,6 +22,15 @@
     gh.gitCredentialHelper.enable = true;
   };
 
+  home.file = {
+    ".config/hypr/keybindings.conf".source =
+      lib.mkForce ../assets/keybindings.conf;
+    ".config/hypr/hypridle.conf".source =
+      lib.mkForce ../assets/hypridle.conf;
+    ".config/hypr/hyprshade.toml".source =
+      ../assets/hyprshade.toml;
+  };
+
   # hydenix home-manager options go here
   hydenix.hm = {
     #! Important options
@@ -34,7 +43,7 @@
     };
     spotify.enable = false;
     git = {
-      enable = true; # enable git module
+      enable = true;
       name = "icedcoffeeee";
       email = "83535735+icedcoffeeee@users.noreply.github.com";
     };
@@ -46,13 +55,15 @@
         font_size 12.000000
         tab_bar_edge top
         tab_bar_style powerline
+        window_padding_width 2
       '';
     };
     hyprland = {
       enable = true;
       extraConfig = ''
-        monitor = HDMI-A-1, 1920x1080@60, 0x0, 1
-        monitor = eDP-1, 1920x1080@60, 1920x0, 1
+        animation = global,1,2,default
+        monitor   = HDMI-A-1, 1920x1080@60, 0x0, 1
+        monitor   = eDP-1, 1920x1080@60, 1920x0, 1
       '';
     };
     /*
