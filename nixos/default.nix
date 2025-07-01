@@ -1,8 +1,4 @@
-{
-  inputs,
-  ...
-}:
-let
+{ inputs, lib, ...  }: let
   # Package declaration
   # ---------------------
 
@@ -16,11 +12,14 @@ let
           config.allowUnfree = true;
         };
       })
-    ];
+    ] ++ 
+    (map 
+      (key: lib.getAttr key (import ./overlays.nix))
+      (lib.attrNames (import ./overlays.nix))
+    );
   };
 in
 {
-
   # Set pkgs for hydenix globally, any file that imports pkgs will use this
   nixpkgs.pkgs = pkgs;
 
@@ -71,7 +70,7 @@ in
           inputs.hydenix.lib.homeModules
           # Nix-index-database - for comma and command-not-found
           inputs.nix-index-database.hmModules.nix-index
-          ./home
+          ../home
         ];
       };
   };

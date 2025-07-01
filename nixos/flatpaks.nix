@@ -7,7 +7,8 @@ let
   ];
   command = f: ''
     if [[ -z $(flatpak list --app|rg ${ f.id }) ]]; then
-      flatpak install -y ${ f.id }${ if f ? commit then " --commit ${f.commit}" else "" }
+      flatpak install -y ${ f.id }
+      ${ if f ? commit then "flatpak update -y ${f.id} --commit ${f.commit}" else "" }
     fi
   '';
   commands = builtins.concatStringsSep "\n" (map command flatpaks);

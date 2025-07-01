@@ -5,6 +5,7 @@
     # ./example.nix - add your modules here
     ./bash.nix
     ./xdg.nix
+    # ../nixvim
   ];
 
   # home-manager options go here
@@ -19,22 +20,11 @@
 
   fonts.fontconfig.defaultFonts.monospace = [ "JetBrains Mono" ];
 
-  # programs = {
-  #   git.extraConfig.init.defaultBranch = "main";
-  #   gh.enable = true;
-  #   gh.gitCredentialHelper.enable = true;
-  #   kitty = {
-  #     enable = true;
-  #     font.name = "JetBrainsMono Nerd Font";
-  #     font.size = 12.0;
-  #     settings = {
-  #       tab_bar_edge = "top";
-  #       tab_bar_style = "powerline";
-  #       background_opacity = 0.7;
-  #       linux_display_server = "x11";
-  #     };
-  #   };
-  # };
+  programs = {
+    git.extraConfig.init.defaultBranch = "main";
+    gh.enable = true;
+    gh.gitCredentialHelper.enable = true;
+  };
 
   # hydenix home-manager options go here
   hydenix.hm = {
@@ -47,9 +37,20 @@
       name = "icedcoffeeee";
       email = "83535735+icedcoffeeee@users.noreply.github.com";
     };
-    terminals = {
+    terminals.enable = true;
+    terminals.kitty.enable = true;
+    terminals.kitty.configText = ''
+      font_family JetBrainsMono Nerd Font
+      font_size 12.000000
+      tab_bar_edge top
+      tab_bar_style powerline
+    '';
+    hyprland = {
       enable = true;
-      kitty.enable = true;
+      extraConfig = ''
+        monitor = HDMI-A-1, 1920x1080@60, 0x0, 1
+        monitor = eDP-1, 1920x1080@60, 1920x0, 1
+      '';
     };
     /*
       ! Below are defaults, no need to uncomment them all

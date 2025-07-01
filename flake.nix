@@ -2,40 +2,42 @@
   description = "icedtea's hydenix";
 
   inputs = {
-    # User's nixpkgs - for user packages
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    hydenix.url = "github:richen604/hydenix";
 
-    # Hydenix and its nixpkgs - kept separate to avoid conflicts
-    hydenix = {
-      # Available inputs:
-      # Main: github:richen604/hydenix
-      # Dev: github:richen604/hydenix/dev
-      # Commit: github:richen604/hydenix/<commit-hash>
-      # Version: github:richen604/hydenix/v1.0.0
-      url = "github:richen604/hydenix";
-    };
+    flake-utils.url = "github:numtide/flake-utils";
+    flatpak.url = "github:gmodena/nix-flatpak";
 
-    # Nix-index-database - for comma and command-not-found
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    { ... }@inputs:
-    let
-      HOSTNAME = "hydenix";
+  outputs = { nixpkgs, ... } @ inputs:
+  let
+    HOSTNAME = "hydenix";
 
-      hydenixConfig = inputs.hydenix.inputs.hydenix-nixpkgs.lib.nixosSystem {
-        inherit (inputs.hydenix.lib) system;
-        specialArgs = { inherit inputs; };
-        modules = [ ./nixos ];
-      };
-
-    in
-    {
-      nixosConfigurations.nixos = hydenixConfig;
-      nixosConfigurations.${HOSTNAME} = hydenixConfig;
+    hydenixConfig = inputs.hydenix.inputs.hydenix-nixpkgs.lib.nixosSystem {
+      inherit (inputs.hydenix.lib) system;
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./nixos
+        ./nixos/flatpaks.nix
+      ];
     };
+  in
+  {
+    nixosConfigurations.nixos = hydenixConfig;
+    nixosConfigurations.${HOSTNAME} = hydenixConfig;
+  } // inputs.flake-utils.lib.eachDefaultSystem (system: {
+    devShells = {
+      bevy    = import ./shells/bevy.nix    { inherit nixpkgs system; };
+      android = import ./shells/android.nix { inherit nixpkgs system; };
+    };
+  });
 }
