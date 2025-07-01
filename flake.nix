@@ -13,22 +13,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-24.11";
+      url = "github:nix-community/nixvim/nixos-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, ... } @ inputs:
+  outputs = { nixpkgs, nixvim, ... } @ inputs:
   let
     HOSTNAME = "hydenix";
 
     hydenixConfig = inputs.hydenix.inputs.hydenix-nixpkgs.lib.nixosSystem {
       inherit (inputs.hydenix.lib) system;
       specialArgs = { inherit inputs; };
-      modules = [
-        ./nixos
-        ./nixos/flatpaks.nix
-      ];
+      modules = [ ./nixos ];
     };
   in
   {

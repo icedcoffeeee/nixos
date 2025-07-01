@@ -2,10 +2,9 @@
 
 {
   imports = [
-    # ./example.nix - add your modules here
     ./bash.nix
     ./xdg.nix
-    # ../nixvim
+    ../nixvim
   ];
 
   # home-manager options go here
@@ -13,12 +12,9 @@
     obsidian vlc easyeffects youtube-music
     discord telegram-desktop zapzap audacity kdePackages.kdenlive
     teams-for-linux zotero todoist onedrive
-
-    # pkgs.vscode - hydenix's vscode version
-    # pkgs.userPkgs.vscode - your personal nixpkgs version
   ];
 
-  fonts.fontconfig.defaultFonts.monospace = [ "JetBrains Mono" ];
+  fonts.fontconfig.defaultFonts.monospace = [ "JetBrainsMono Nerd Font" ];
 
   programs = {
     git.extraConfig.init.defaultBranch = "main";
@@ -30,21 +26,28 @@
   hydenix.hm = {
     #! Important options
     enable = true;
-    editors.vscode.enable = false;
+    editors = {
+      vim = false;
+      neovim = false;
+      vscode.enable = false;
+      default = "neovim";
+    };
     spotify.enable = false;
     git = {
       enable = true; # enable git module
       name = "icedcoffeeee";
       email = "83535735+icedcoffeeee@users.noreply.github.com";
     };
-    terminals.enable = true;
-    terminals.kitty.enable = true;
-    terminals.kitty.configText = ''
-      font_family JetBrainsMono Nerd Font
-      font_size 12.000000
-      tab_bar_edge top
-      tab_bar_style powerline
-    '';
+    terminals = {
+      enable = true;
+      kitty.enable = true;
+      kitty.configText = ''
+        font_family JetBrainsMono Nerd Font
+        font_size 12.000000
+        tab_bar_edge top
+        tab_bar_style powerline
+      '';
+    };
     hyprland = {
       enable = true;
       extraConfig = ''
@@ -59,13 +62,10 @@
       editors = {
         enable = true; # enable editors module
         neovim = true; # enable neovim module
-        neovim = true; # enable neovim module
         vscode = {
           enable = true; # enable vscode module
           wallbash = true; # enable wallbash extension for vscode
         };
-        vim = true; # enable vim module
-        default = "code"; # default text editor
         vim = true; # enable vim module
         default = "code"; # default text editor
       };

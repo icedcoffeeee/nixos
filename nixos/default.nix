@@ -28,6 +28,7 @@ in
     ./hardware.nix
     inputs.hydenix.lib.nixOsModules
     ./system.nix
+    ./flatpaks.nix
 
     # === GPU-specific configurations ===
 
@@ -70,6 +71,7 @@ in
           inputs.hydenix.lib.homeModules
           # Nix-index-database - for comma and command-not-found
           inputs.nix-index-database.hmModules.nix-index
+          inputs.nixvim.homeManagerModules.nixvim
           ../home
         ];
       };
