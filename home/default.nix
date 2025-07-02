@@ -11,7 +11,7 @@
   home.packages = with pkgs; [
     obsidian vlc easyeffects youtube-music
     discord telegram-desktop zapzap audacity kdePackages.kdenlive
-    teams-for-linux zotero todoist onedrive
+    teams-for-linux zotero todoist onedrive obs-studio
   ];
 
   fonts.fontconfig.defaultFonts.monospace = [ "JetBrainsMono Nerd Font" ];
