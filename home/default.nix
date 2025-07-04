@@ -9,7 +9,7 @@
 
   # home-manager options go here
   home.packages = with pkgs; [
-    obsidian vlc easyeffects youtube-music
+    obsidian vlc easyeffects youtube-music blender
     discord telegram-desktop zapzap audacity kdePackages.kdenlive
     teams-for-linux zotero todoist onedrive obs-studio
   ];
