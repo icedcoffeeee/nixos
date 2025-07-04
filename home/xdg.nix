@@ -65,7 +65,7 @@
       };
     };
     configFile = {
-      "autostart/autostart-zen.desktop".source = ../assets/autostart-zen.desktop;
+      # "autostart/autostart-zen.desktop".source = ../assets/autostart-zen.desktop;
       "yazi/theme.toml".source                 = ../assets/yazi-theme.toml;
       "yazi/flavors/onedark.yazi".source       = pkgs.fetchgit {
         url    = "https://github.com/BennyOe/onedark.yazi";
