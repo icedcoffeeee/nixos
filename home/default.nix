@@ -64,8 +64,11 @@
         animation = global,1,2,default
         monitor   = HDMI-A-1, 1920x1080@60, 0x0, 1
         monitor   = eDP-1, 1920x1080@60, 1920x0, 1
+        exec-once = [workspace 1 silent] flatpak run app.zen_browser.zen
+        exec-once = [workspace 2 silent] kitty
       '';
     };
+    fastfetch.enable = false;
     /*
       ! Below are defaults, no need to uncomment them all
       comma.enable = true; # useful nix tool to run software without installing it first
