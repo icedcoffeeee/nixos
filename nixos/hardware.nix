@@ -10,8 +10,8 @@
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+  boot.kernelModules = [ "kvm-amd" "v4l2loopback" ];
+  boot.extraModulePackages = [ pkgs.linuxPackages_zen.v4l2loopback ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/731892fd-0389-4dd0-a0e3-b13d620667a7";
