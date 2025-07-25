@@ -29,9 +29,9 @@
 
   systemd.user.services.hyprpolkitagent = {
     description = "hyprpolkitagent";
-    wantedBy = [ "graphical-session.target" ];
-    wants = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
+    wantedBy = [ "default.target" ];
+    wants = [ "default.target" ];
+    after = [ "default.target" ];
     serviceConfig = {
       Type = "simple";
       ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
