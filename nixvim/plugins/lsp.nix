@@ -8,6 +8,7 @@
       clangd.enable = true;
       emmet_language_server.enable = true;
       ts_ls.enable = true;
+      tinymist.enable = true;
 
       lua_ls = {
         enable = true;
