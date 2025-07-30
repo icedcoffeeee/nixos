@@ -23,10 +23,15 @@
       ".."   = "cd ..";
       open   = "xdg-open";
       camset = "sudo modprobe v4l2loopback";
-      cam    = ''
+      cam0    = ''
         scrcpy --v4l2-sink=/dev/video0 \
         --video-source=camera --no-audio \
-        --camera-id=1 -m500
+        --camera-id=0 -m500 --no-window
+        '';
+      cam1    = ''
+        scrcpy --v4l2-sink=/dev/video0 \
+        --video-source=camera --no-audio \
+        --camera-id=1 -m500 --no-window
         '';
     };
     envExtra = ''
