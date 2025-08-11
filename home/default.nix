@@ -24,11 +24,11 @@
 
   home.file = {
     ".config/hypr/keybindings.conf".source =
-      lib.mkForce ../assets/keybindings.conf;
+      lib.mkForce ../assets/hypr/keybindings.conf;
     ".config/hypr/hypridle.conf".source =
-      lib.mkForce ../assets/hypridle.conf;
+      lib.mkForce ../assets/hypr/hypridle.conf;
     ".config/hypr/hyprshade.toml".source =
-      ../assets/hyprshade.toml;
+      lib.mkForce ../assets/hypr/hyprshade.toml;
   };
 
   # hydenix home-manager options go here
@@ -60,30 +60,7 @@
     };
     hyprland = {
       enable = true;
-      extraConfig = ''
-        input:touchpad {
-            natural_scroll = true
-        }
-
-        animations {
-            enabled = yes
-            bezier = wind, 0.05, 0.9, 0.1, 1.05
-            bezier = winIn, 0.1, 1.1, 0.1, 1.1
-            bezier = winOut, 0.3, -0.3, 0, 1
-            bezier = liner, 1, 1, 1, 1
-            animation = windows, 1, 1, wind, slide
-            animation = windowsIn, 1, 1, winIn, slide
-            animation = windowsOut, 1, 1, winOut, slide
-            animation = windowsMove, 1, 1, wind, slide
-            animation = border, 1, 1, liner
-        }
-
-        monitor   = HDMI-A-1, 1920x1080@60, 0x0, 1
-        monitor   = eDP-1, 1920x1080@60, 1920x0, 1
-        exec-once = [workspace 1 silent] flatpak run app.zen_browser.zen
-        exec-once = [workspace 2 silent] kitty
-        exec-once = [workspace 3 silent] youtube-music
-      '';
+      extraConfig = builtins.readFile ../assets/hypr/hyprland.conf;
     };
     fastfetch.enable = false;
     /*

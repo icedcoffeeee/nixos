@@ -7,7 +7,7 @@
           mkdir -p $out/share/icons/hicolor/''${i}x''${i}/apps
           convert \
             -background none \
-            -resize ''${i}x''${i} ${./../assets/kitty-icon.png} \
+            -resize ''${i}x''${i} ${./../assets/kitty.png} \
             $out/share/icons/hicolor/''${i}x''${i}/apps/${old.pname}.png
         done
       '';

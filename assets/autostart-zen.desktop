@@ -1,5 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=zen_browser
-Exec=flatpak run app.zen_browser.zen
-X-GNOME-Autostart-enabled=true

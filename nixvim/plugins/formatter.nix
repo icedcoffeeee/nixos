@@ -15,7 +15,7 @@
     ];
     extraPackages = with pkgs; [
       shfmt llvmPackages_19.clang-tools
-      nixfmt-classic ruff rustfmt
+      nixfmt-classic ruff rustfmt typstyle
       texlivePackages.latexindent prettierd
     ];
     extraConfigLua = ''
@@ -29,6 +29,7 @@
         python = require("formatter.filetypes.python").ruff,
         rust = require("formatter.filetypes.rust").rustfmt,
         tex = require("formatter.filetypes.tex").latexindent,
+        typ = { exe = "typstyle", args = "-i"  },
       }
 
       local prettier = {

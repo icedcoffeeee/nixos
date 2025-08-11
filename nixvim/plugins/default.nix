@@ -30,7 +30,14 @@
       enable = true;
       modules = {
         ai.n_lines = 500;
-        files = {};
+        files = {
+          mappings = {
+            go_in = "L";
+            go_in_plus = "";
+            go_out = "H";
+            go_out_plus = "";
+          };
+        };
         statusline = {
           use_icons = true;
           section_location = ''
@@ -41,21 +48,6 @@
         };
       };
     };
-    # nvim-tree = {
-    #   enable = true;
-    #   view = {
-    #     side = "right";
-    #     number = true;
-    #     relativenumber = true;
-    #   };
-    #   actions = {
-    #     expandAll.exclude = [
-    #       ".git"
-    #         "node_modules"
-    #         ".svelte-kit"
-    #     ];
-    #   };
-    # };
   };
 
   imports = [

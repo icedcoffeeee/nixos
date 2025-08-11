@@ -26,6 +26,7 @@ in
   imports = [
     inputs.hydenix.inputs.home-manager.nixosModules.home-manager
     ./hardware.nix
+
     inputs.hydenix.lib.nixOsModules
     ./system.nix
     ./flatpaks.nix
