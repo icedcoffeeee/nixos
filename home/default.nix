@@ -15,6 +15,8 @@
     teams-for-linux zotero todoist onedrive obs-studio
   ];
 
+  services.syncthing.enable = true;
+
   fonts.fontconfig.defaultFonts.monospace = [ "JetBrainsMono Nerd Font" ];
 
   programs = {
