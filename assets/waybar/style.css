@@ -1,0 +1,31 @@
+@define-color main-bg #14151F;
+@define-color main-fg #AE8CDA;
+
+* {
+  font-family: "JetBrainsMono NF", monospace;
+  margin: 2px 5px;
+}
+
+#L1,
+#L2,
+#L3,
+#C1,
+#R1,
+#R2,
+#R3 {
+  padding: 0 5px;
+  background-color: @main-bg;
+  border-radius: 999px;
+}
+
+#workspaces button,
+#taskbar button {
+  margin: 0;
+  padding: 0;
+}
+
+#workspaces button.active,
+#taskbar button.active {
+  background-color: @main-fg;
+  border-radius: 999px;
+}

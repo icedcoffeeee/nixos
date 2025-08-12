@@ -4,6 +4,7 @@
   imports = [
     ./bash.nix
     ./xdg.nix
+    ./waybar.nix
     ../nixvim
   ];
 
@@ -63,6 +64,7 @@
       extraConfig = builtins.readFile ../assets/hypr/hyprland.conf;
     };
     fastfetch.enable = false;
+    waybar.enable = false;
     /*
       ! Below are defaults, no need to uncomment them all
       comma.enable = true; # useful nix tool to run software without installing it first
