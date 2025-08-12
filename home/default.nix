@@ -30,6 +30,8 @@
       lib.mkForce ../assets/hypr/hypridle.conf;
     ".config/hypr/hyprshade.toml".source =
       lib.mkForce ../assets/hypr/hyprshade.toml;
+    ".config/onedrive/config".source =
+      lib.mkForce ../assets/onedrive.conf;
   };
 
   # hydenix home-manager options go here
