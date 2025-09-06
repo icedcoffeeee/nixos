@@ -5,7 +5,7 @@
 
   environment.systemPackages = with pkgs; [
     wget tree curl vim git gh xclip zip unzip xdg-utils usbutils
-    gnumake cmake ffmpeg cairo pango dconf2nix nodejs_24 bun
+    p7zip.out gnumake cmake ffmpeg cairo pango dconf2nix nodejs_24 bun
     gcc14 clang-tools pandoc perl rustup go gdb tree-sitter
     lazygit lazydocker ripgrep fastfetch popsicle libreoffice
     imagemagick inkscape krita scrcpy kitty btop zathura yazi
