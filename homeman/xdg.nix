@@ -64,13 +64,5 @@
         "image/jxl"                   = loupe;
       };
     };
-    configFile = {
-      "yazi/theme.toml".source                 = ../assets/yazi.toml;
-      "yazi/flavors/onedark.yazi".source       = pkgs.fetchgit {
-        url    = "https://github.com/BennyOe/onedark.yazi";
-        rev    = "fa1da70556a5654f5d40d063a95e55ecc63b3ef7";
-        sha256 = "sha256-SJdkLjF2i5/G0H/x9kTPXv/ozzMO1WhddWMjZi6+x3A=";
-      };
-    };
   };
 }

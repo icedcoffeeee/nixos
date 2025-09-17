@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   options = { formatter.enable = true; };
   config = {
     extraPlugins = [
@@ -14,9 +13,14 @@
       })
     ];
     extraPackages = with pkgs; [
-      shfmt llvmPackages_19.clang-tools typstyle
-      nixfmt-classic ruff rustfmt prettier
-      texlivePackages.latexindent prettierd
+      nixfmt-classic
+      ruff
+      rustfmt
+      shfmt
+      typstyle
+      llvmPackages_19.clang-tools
+      nodePackages.prettier
+      texlivePackages.latexindent
     ];
     extraConfigLua = ''
       local filetype = {
