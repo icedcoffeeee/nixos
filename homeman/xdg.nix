@@ -3,7 +3,7 @@
     mimeApps = let
       evince         = "org.gnome.Evince.desktop";
       zen            = "app.zen_browser.zen.desktop";
-      loupe          = "org.gnome.Loupe.desktop;";
+      loupe          = "org.gnome.Loupe.desktop";
     in {
       enable = true;
       associations.added = {
