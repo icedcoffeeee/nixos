@@ -1,48 +1,54 @@
-{ ... }:
-{
+{ ... }: {
   programs.waybar = {
     enable = true;
+    style = builtins.readFile ../assets/waybar/style.css;
     settings.main = {
       layer = "top"; position = "top"; mod = "dock";
       height = 30; exclusive = true; gtk-layer-shell = true;
-      include = [ 
-        "$HOME/.local/share/waybar/modules/cpu.jsonc"
-        "$HOME/.local/share/waybar/modules/memory.jsonc"
-        "$HOME/.local/share/waybar/modules/custom-cpuinfo.jsonc"
-        "$HOME/.local/share/waybar/modules/custom-gpuinfo.jsonc"
-        "$HOME/.local/share/waybar/modules/hyprland-workspaces.jsonc"
-        "$HOME/.local/share/waybar/modules/hyprland-window.jsonc"
-        "$HOME/.local/share/waybar/modules/backlight.jsonc"
-        "$HOME/.local/share/waybar/modules/pulseaudio.jsonc"
-        "$HOME/.local/share/waybar/modules/pulseaudio#microphone.jsonc"
-        "$HOME/.local/share/waybar/modules/custom-updates.jsonc"
-        "$HOME/.local/share/waybar/modules/privacy.jsonc"
-        "$HOME/.local/share/waybar/modules/tray.jsonc"
-        "$HOME/.local/share/waybar/modules/battery.jsonc"
-        "$HOME/.local/share/waybar/modules/custom-cliphist.jsonc"
-        "$HOME/.local/share/waybar/modules/custom-hyde-menu.jsonc"
-        "$HOME/.local/share/waybar/modules/custom-power.jsonc"
-      ];
       output = [ "*" ]; # screens
 
-      modules-left = [ "group/pill#left1" "group/pill#left2" ];
-      "group/pill#left1".orientation = "inherit";
-      "group/pill#left1".modules = [ "cpu" "memory" "custom/cpuinfo" "custom/gpuinfo" ];
-      "group/pill#left2".orientation = "inherit";
-      "group/pill#left2".modules = [ "idle_inhibitor" "clock" ];
+      modules-left = [ "group/L1" "group/L2" "group/L3" ];
+      "group/L1".orientation = "inherit";
+      "group/L1".modules = [ "cpu" "memory" "custom/cputemp" "custom/gputemp" ];
+      "group/L2".orientation = "inherit";
+      "group/L2".modules = [ "idle_inhibitor" "clock" ];
+      "group/L3".orientation = "inherit";
+      "group/L3".modules = [ "hyprland/workspaces" ];
 
-      modules-center = [ "group/pill#center" ];
-      "group/pill#center".orientation = "inherit";
-      "group/pill#center".modules = [ "hyprland/workspaces" "hyprland/window" ];
+      modules-center = [ "group/C1" ];
+      "group/C1".orientation = "inherit";
+      "group/C1".modules = [ "wlr/taskbar" ];
 
-      modules-right = [ "group/pill#right1" "group/pill#right2" "group/pill#right3" ];
-      "group/pill#right1".orientation = "inherit";
-      "group/pill#right1".modules = [ "network" "pulseaudio" "pulseaudio#microphone" "custom/updates" ];
-      "group/pill#right2".orientation = "inherit";
-      "group/pill#right2".modules = [ "backlight" "privacy" "tray" "battery" ];
-      "group/pill#right3".orientation = "inherit";
-      "group/pill#right3".modules = [ "custom/cliphist" "custom/hyde-menu" "custom/power" ];
+      modules-right = [ "group/R1" "group/R2" "group/R3" ];
+      "group/R1".orientation = "inherit";
+      "group/R1".modules = [ "network" "pulseaudio" "pulseaudio#microphone" ];
+      "group/R2".orientation = "inherit";
+      "group/R2".modules = [ "tray" ];
+      "group/R3".orientation = "inherit";
+      "group/R3".modules = [ "battery" "custom/cliphist" "custom/power" ];
 
+      # group/L1
+      "cpu" = { interval = 10; format = "󰍛 {usage}%"; };
+      "memory" = {
+        interval = 30;
+        format = builtins.fromJSON ''"\udb83\udf86 {used}GB"'';
+        max-length = 10; tooltip = true;
+        tooltip-format = builtins.fromJSON ''
+          "\udb83\udf86 Memory usage: {percentage}%\n\ue266 Used: {used:0.2f}GB / {total:0.2f}GB\n\uf85a Available: {avail:0.2f}GB\n\uf233 Swap used: {swapUsed:0.2f}GB / {swapTotal:0.2f}GB ({swapPercentage}%)"'';
+      };
+      "custom/cputemp" = {
+        exec = "hyde-shell cpuinfo";
+        return-type = "json";
+        format = "{0}"; rotate = 0; interval = 5;
+        tooltip = true; max-length = 1000;
+      };
+      "custom/gputemp" = {
+        exec = "hyde-shell gpuinfo";
+        return-type = "json";
+        format = "{0}"; rotate = 0; interval = 5;
+        tooltip = true; max-length = 1000;
+      };
+      # group/L2
       "idle_inhibitor" = {
         format = "{icon}";
         format-icons = {
@@ -67,6 +73,30 @@
           };
         };
       };
+      # group/L3
+      "hyprland/workspaces" = {
+        class = "no-margin-padding";
+        rotate = 0; all-outputs = true;
+        active-only = false; on-click = "activate";
+        disable-scroll = false;
+        on-scroll-up = "hyprctl dispatch workspace -1";
+        on-scroll-down = "hyprctl dispatch workspace +1";
+        persistent-workspaces = { };
+      };
+
+      # group/C1
+      "wlr/taskbar" = {
+        all-outputs = true; active-first = false; markup = true;
+        format = "{icon}"; rotate = 0; spacing = 20;
+        tooltip-format = "{title} | {app_id}";
+        on-click = "activate";
+        on-click-right = "fullscreen";
+        on-click-middle = "close";
+        class = "no-margin-padding";
+        ignore-list = [ "" ];
+      };
+
+      # R1
       "network" = {
         interval = 2; tooltip = true; rotate = 0;
         format = builtins.fromJSON ''
@@ -82,6 +112,78 @@
           Gateway: <b>{gwaddr}</b>
           Netmask: <b>{netmask}</b>'';
         tooltip-format-disconnected = "Disconnected";
+      };
+      "pulseaudio" = {
+        format = "{icon} {volume}"; rotate = 0;
+        format-muted = "婢";
+        on-click = "pavucontrol -t 3";
+        on-click-right = "hyde-shell volumecontrol -s ''";
+        on-click-middle = "hyde-shell volumecontrol -o m";
+        on-scroll-up = "hyde-shell volumecontrol -o i";
+        on-scroll-down = "hyde-shell volumecontrol -o d";
+        tooltip-format = "{icon} {desc} // {volume}%";
+        scroll-step = 5;
+        format-icons = {
+          headphone = "";
+          hands-free = "";
+          headset = "";
+          phone = "";
+          portable = "";
+          car = "";
+          default = [ "" "" "" ];
+        };
+      };
+      "pulseaudio#microphone" = {
+        format = "{format_source}"; rotate = 0;
+        format-source = builtins.fromJSON ''"\uf86b"'';
+        format-source-muted = builtins.fromJSON ''"\uf131"'';
+        on-click = "pavucontrol -t 4";
+        on-click-middle = "hyde-shell volumecontrol -i m";
+        on-scroll-up = "hyde-shell volumecontrol -i i";
+        on-scroll-down = "hyde-shell volumecontrol -i d";
+        tooltip-format = "{format_source} {source_desc} // {source_volume}%";
+        scroll-step = 5;
+      };
+      # R2
+      "tray" = { spacing = 5; };
+      # R3
+      "battery" = {
+        format = "{icon} {capacity}%"; rotate = 0;
+        format-charging = " {capacity}%";
+        format-plugged = " {capacity}%";
+        format-alt = "{time} {icon}";
+        format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+      };
+      "custom/cliphist" = {
+        format = "{0}"; rotate = 0;
+        exec =
+          builtins.fromJSON ''"echo ; echo \udb80\udd47 clipboard history"'';
+        on-click = "sleep 0.1 && hyde-shell cliphist -c";
+        menu = "on-click-right";
+        menu-file = "$XDG_CONFIG_HOME/waybar/clipboard.xml";
+        menu-actions = {
+          favorites = "hyde-shell cliphist --favorites";
+          history = "hyde-shell cliphist --copy";
+          delete-history = "hyde-shell cliphist --delete";
+          manage-favorites = "hyde-shell cliphist 'Manage Favorites'";
+          clear-history = "hyde-shell cliphist --wipe";
+        };
+        interval = 86400; tooltip = true;
+      };
+      "custom/power" = {
+        format = "{0}"; rotate = 0;
+        exec = "echo ; echo  logout";
+        on-click = "hyde-shell logoutlaunch 2";
+        menu = "on-click-right";
+        menu-file = "$XDG_CONFIG_HOME/waybar/power.xml";
+        menu-actions = {
+          shutdown-now = "systemctl shutdown now";
+          shutdown-wait = "systemctl poweroff";
+          reboot = "reboot";
+          suspend = "systemctl suspend";
+          hibernate = "systemctl hibernate";
+        };
+        interval = 86400; tooltip = true;
       };
     };
   };

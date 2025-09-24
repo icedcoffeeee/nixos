@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ ... }:
+{
   plugins.lsp = {
     enable = true;
     servers = {
@@ -38,8 +39,7 @@
       };
       tailwindcss = {
         enable = true;
-        settings.tailwindCSS.classAttributes =
-          [ "class" "className" "class:list" ".*ClassName.*" "tw" ];
+        settings.tailwindCSS.classAttributes = [ "class" "className" "class:list" ".*ClassName.*" "tw" ];
       };
       texlab = {
         enable = true;
@@ -62,16 +62,9 @@
         "[d" = "goto_prev";
         "]d" = "goto_next";
       };
-      extra = [
-        {
-          key = "<m-l>";
-          action = "<cmd>LspRestart<cr>";
-        }
-        {
-          key = "<c-h>";
-          action.__raw = "vim.lsp.buf.signature_help";
-          mode = [ "i" "s" ];
-        }
+      extra = [ 
+        { key = "<m-l>"; action = "<cmd>LspRestart<cr>"; }
+        { key = "<c-h>"; action.__raw = "vim.lsp.buf.signature_help"; mode = [ "i" "s" ]; }
       ];
     };
   };
