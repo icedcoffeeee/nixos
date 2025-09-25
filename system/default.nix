@@ -11,5 +11,6 @@
   programs.adb.enable = true;
   programs.hyprland.enable = true;
   programs.hyprland.xwayland.enable = true;
+  programs.regreet.enable = true;
   programs.zsh.enable = true;
 }
