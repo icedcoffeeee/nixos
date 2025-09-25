@@ -30,4 +30,14 @@
 
   boot.kernelModules = [ "v4l2loopback" ];
   boot.extraModulePackages = with pkgs.linuxPackages; [ v4l2loopback ];
+
+  hardware.bluetooth = {
+    enable = true;
+    settings.General = {
+      Name = "Bluetooth";
+      ControllerMode = "dual";
+      Experimental = "true";
+    };
+    settings.Policy.AutoEnable = "true";
+  };
 }
