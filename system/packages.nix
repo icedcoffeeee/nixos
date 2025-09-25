@@ -1,7 +1,8 @@
 { inputs, pkgs, ... }: {
+  imports = [ ./flatpaks.nix ];
   environment.systemPackages = with pkgs; [
     (python312.withPackages
-      (p: with p; [ numpy matplotlib pyqt6 ipython scipy sympy ]))
+      (p: with p; [ numpy matplotlib pyqt6 ipython scipy sympy psutil ]))
 
     bear
     btop

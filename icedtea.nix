@@ -1,12 +1,13 @@
-{ inputs, user, ... }:
+{ inputs, user, pkgs, ... }:
 let homeman = inputs.homeman.nixosModules.home-manager;
 in {
-  imports = [ homeman ./system ./system/hardware.nix ];
+  imports = [ ./system ./system/hardware.nix homeman ];
 
   users.users.${user} = {
     isNormalUser = true;
     description = user;
     extraGroups = [ "networkmanager" "wheel" "video" "adbusers" "docker" ];
+    shell = pkgs.zsh;
   };
 
   home-manager = {

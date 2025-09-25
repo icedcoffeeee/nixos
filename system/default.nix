@@ -1,5 +1,6 @@
 { pkgs, ... }: {
-  imports = [ ./packages.nix ./etc.nix ];
+  imports = [ ./overlays.nix ./packages.nix ./services.nix ./etc.nix ];
+
   system.stateVersion = "25.05";
 
   nixpkgs.config.allowUnfree = true;
@@ -10,4 +11,5 @@
   programs.adb.enable = true;
   programs.hyprland.enable = true;
   programs.hyprland.xwayland.enable = true;
+  programs.zsh.enable = true;
 }
