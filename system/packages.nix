@@ -23,6 +23,7 @@
     hyprshade
     imagemagick
     inkscape
+    killall
     krita
     lazydocker
     lazygit
