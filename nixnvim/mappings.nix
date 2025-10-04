@@ -20,7 +20,7 @@
     # plugins
     {
       mode = "n"; key = "<c-b>";
-      action.__raw = "require('mini.files').open";
+      action.__raw = "function() require('mini.files').open(vim.api.nvim_buf_get_name(0)) end";
       options = { desc = "Toggle Mini Files"; silent = true; noremap = true; nowait = true; };
     }
     # {
