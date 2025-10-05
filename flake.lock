@@ -276,6 +276,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_5": {
+      "locked": {
+        "lastModified": 1759036355,
+        "narHash": "sha256-0m27AKv6ka+q270dw48KflE0LwQYrO7Fm4/2//KCVWg=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "e9f00bd893984bc8ce46c895c3bf7cac95331127",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nuschtosSearch": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -305,7 +321,48 @@
         "homeman": "homeman",
         "illogical": "illogical",
         "nixnvim": "nixnvim",
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_4",
+        "sunsetr": "sunsetr"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "sunsetr",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1759027024,
+        "narHash": "sha256-LTgfljA/X8aGEXk/EUVoLL+0wfJjQAhF/rUQOFsx+/U=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "971d18658c83f3a6a434ac647798141fddce3175",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "sunsetr": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_5",
+        "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1759104633,
+        "narHash": "sha256-GimnOI+LcqQ2yy8KH03n2wLgnEKTf1XJ9NgV/TITtcg=",
+        "owner": "psi4j",
+        "repo": "sunsetr",
+        "rev": "f03c1eb5e8f6e066bc8d67f20ac462962bad3655",
+        "type": "github"
+      },
+      "original": {
+        "owner": "psi4j",
+        "repo": "sunsetr",
+        "type": "github"
       }
     },
     "systems": {

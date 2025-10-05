@@ -6,6 +6,7 @@
     homeman.url = "github:nix-community/home-manager/release-25.05";
     nixnvim.url = "github:nix-community/nixvim/nixos-25.05";
     flatpak.url = "github:gmodena/nix-flatpak";
+    sunsetr.url = "github:psi4j/sunsetr";
 
     illogical.url = "github:bigsaltyfishes/end-4-dots";
   };

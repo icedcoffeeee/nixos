@@ -8,6 +8,7 @@
     "/.config/hypr/hypridle.conf".source = lib.mkForce ../assets/hypridle.conf;
     "/.config/hypr/hyprland/keybinds.conf".source = lib.mkForce ../assets/hyprkeys.conf;
     "/.config/kitty/kitty.conf".source = lib.mkForce ../assets/kitty.conf;
+    "/.config/sunsetr/sunsetr.conf".source = lib.mkForce ../assets/sunsetr.conf;
   };
 
   services.syncthing.enable = true;
@@ -32,7 +33,6 @@
     blender
     discord
     easyeffects
-    kdePackages.kdenlive
     obs-studio
     obsidian
     onedrive
@@ -43,5 +43,8 @@
     youtube-music
     zapzap
     zotero
+
+    kdePackages.kdenlive
+    inputs.sunsetr.packages.${pkgs.system}.sunsetr
   ];
 }
