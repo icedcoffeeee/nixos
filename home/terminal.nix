@@ -13,7 +13,7 @@ let
     rgf = "rg --files|rg ";
 
     ns = "nix-shell";
-    nrs = "nixos-rebuild switch --flake ~/nixos";
+    nrs = "nixos-rebuild switch --flake ~/nixos --impure";
     ncg =
       "nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
 
@@ -49,6 +49,8 @@ in {
         repo=$1; shift 1;
         git clone "https://github.com/$repo.git" $@;
       }
+
+      fastfetch
     '';
   };
 

@@ -1,52 +1,61 @@
 { inputs, pkgs, ... }: {
-  imports = [ ./flatpaks.nix ];
   environment.systemPackages = with pkgs; [
-    (python312.withPackages
-      (p: with p; [ numpy matplotlib pyqt6 ipython scipy sympy psutil ]))
+    inputs.noctalia.packages.${system}.default
 
+    # code
     bear
-    btop
     bun
-    cairo
     clang-tools
     cmake
-    curl
-    docker-compose
-    evince
-    ffmpeg
     gcc14
     gdb
-    gh
-    git
     gnumake
     go
+    nodejs_24
+    perl
+    rustup
+    typst
+
+    (python312.withPackages
+      (p: with p; [ numpy matplotlib pyqt6 ipython scipy sympy ]))
+
+    # utilities
+    btop
+    cairo
+    curl
+    ffmpeg
+    gh
+    git
+    docker-compose
     hyprshade
-    imagemagick
-    inkscape
     killall
-    krita
+    kitty
+    kitty-themes
     lazydocker
     lazygit
-    libreoffice
-    loupe
-    nodejs_24
-    p7zip.out
+    p7zip
     pandoc
     pango
-    perl
     ripgrep
-    rustup
     scrcpy
-    texliveFull
     tree
     tree-sitter
-    typst
     unzip
     usbutils
     vim
     wget
-    xclip
+    wl-clipboard
     xdg-utils
+    xwayland-satellite
     zip
+
+    # graphics
+    evince
+    imagemagick
+    inkscape
+    krita
+    libreoffice
+    loupe
+    nautilus
   ];
 }

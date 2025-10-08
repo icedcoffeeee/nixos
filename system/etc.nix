@@ -1,15 +1,15 @@
-{ pkgs, host, ... }: {
+{ config, pkgs, host, ... }:
+
+{
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   networking.hostName = host;
   networking.networkmanager.enable = true;
-  networking.firewall.enable = false;
 
   time.timeZone = "Asia/Kuala_Lumpur";
-
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
@@ -28,16 +28,8 @@
     variant = "";
   };
 
-  boot.kernelModules = [ "v4l2loopback" ];
-  boot.extraModulePackages = with pkgs.linuxPackages; [ v4l2loopback ];
+  nixpkgs.config.allowUnfree = true;
+  networking.firewall.enable = false;
+  system.stateVersion = "25.05";
 
-  hardware.bluetooth = {
-    enable = true;
-    settings.General = {
-      Name = "Bluetooth";
-      ControllerMode = "dual";
-      Experimental = "true";
-    };
-    settings.Policy.AutoEnable = "true";
-  };
 }
