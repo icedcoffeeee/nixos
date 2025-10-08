@@ -1,7 +1,7 @@
 { inputs, user, pkgs, ... }:
 let homeman = inputs.homeman.nixosModules.home-manager;
 in {
-  imports = [ ./system ./system/hardware.nix homeman ];
+  imports = [ ./system /etc/nixos/hardware-configuration.nix homeman ];
 
   users.users.${user} = {
     isNormalUser = true;
