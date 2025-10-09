@@ -35,38 +35,30 @@ let
       --camera-id=1 -m500 --no-window
     '';
   };
+
+  extra = ''
+    export PATH=$PATH:/home/icedtea/.local/bin
+    export PATH=$PATH:/home/icedtea/.cargo/bin
+    export PATH=$PATH:/home/icedtea/.bun/bin
+    export PATH=$PATH:/home/icedtea/go/bin
+
+    function ghc() {
+      repo=$1; shift 1;
+      git clone "https://github.com/$repo.git" $@;
+    }
+
+    fastfetch
+  '';
 in {
   programs.bash = {
     enable = true;
     shellAliases = aliases;
-    bashrcExtra = ''
-      export PATH=$PATH:/home/icedtea/.local/bin
-      export PATH=$PATH:/home/icedtea/.cargo/bin
-      export PATH=$PATH:/home/icedtea/.bun/bin
-      export PATH=$PATH:/home/icedtea/go/bin
-
-      function ghc() {
-        repo=$1; shift 1;
-        git clone "https://github.com/$repo.git" $@;
-      }
-
-      fastfetch
-    '';
+    bashrcExtra = extra;
   };
 
   programs.zsh = {
     enable = true;
     shellAliases = aliases;
-    envExtra = ''
-      export PATH=$PATH:/home/icedtea/.local/bin
-      export PATH=$PATH:/home/icedtea/.cargo/bin
-      export PATH=$PATH:/home/icedtea/.bun/bin
-      export PATH=$PATH:/home/icedtea/go/bin
-
-      function ghc() {
-        repo=$1; shift 1;
-        git clone "https://github.com/$repo.git" $@;
-      }
-    '';
+    envExtra = extra;
   };
 }
