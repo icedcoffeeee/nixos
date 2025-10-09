@@ -177,15 +177,7 @@
         enableUserTemplates = false;
       };
 
-      nightLight = {
-        enabled = true;
-        forced = false;
-        autoSchedule = true;
-        nightTemp = "2500";
-        dayTemp = "6500";
-        manualSunrise = "06:30";
-        manualSunset = "00:00";
-      };
+      nightLight.enabled = false;
 
       hooks = {
         enabled = false;

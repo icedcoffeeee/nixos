@@ -20,7 +20,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.quickshell.follows = "quickshell";
     };
+
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+    sunsetr.url = "github:psi4j/sunsetr";
   };
 
   outputs = inputs:

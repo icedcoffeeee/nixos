@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   xdg.configFile = {
     "niri/config.kdl".source = ../assets/niri.kdl;
+    "sunsetr/sunsetr.toml".source = ../assets/sunsetr.toml;
   };
 
   xdg.mimeApps = let

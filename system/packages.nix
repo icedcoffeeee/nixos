@@ -1,7 +1,9 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }:
+let
+  noctalia = inputs.noctalia.packages.${pkgs.system}.default;
+  sunsetr = inputs.sunsetr.packages.${pkgs.system}.sunsetr;
+in {
   environment.systemPackages = with pkgs; [
-    inputs.noctalia.packages.${system}.default
-
     # code
     bear
     bun
@@ -38,6 +40,7 @@
     pango
     ripgrep
     scrcpy
+    sunsetr
     tree
     tree-sitter
     unzip
@@ -50,6 +53,7 @@
     zip
 
     # graphics
+    noctalia
     evince
     imagemagick
     inkscape
