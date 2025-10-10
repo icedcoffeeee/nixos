@@ -23,9 +23,9 @@
   programs.zsh.enable = true;
 
   programs.xss-lock.enable = true;
-  programs.xss-lock.lockerCommand = let
-    noctalia = inputs.noctalia.packages.${pkgs.system}.default;
-  in "${noctalia}/bin/noctalia-shell ipc call lockScreen toggle";
+  programs.xss-lock.lockerCommand =
+    let noctalia = inputs.noctalia.packages.${pkgs.system}.default;
+    in "${noctalia}/bin/noctalia-shell ipc call lockScreen toggle";
 
   programs.regreet.enable = true;
   programs.regreet.settings.GTK.application_prefer_dark_theme = true;

@@ -46,8 +46,6 @@ let
       repo=$1; shift 1;
       git clone "https://github.com/$repo.git" $@;
     }
-
-    fastfetch
   '';
 in {
   programs.bash = {
