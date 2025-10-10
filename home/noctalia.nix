@@ -24,7 +24,10 @@
               showMemoryUsage = true;
               showNetworkStats = true;
             }
-            { id = "ActiveWindow"; }
+            {
+              id = "ActiveWindow";
+              showIcon = false;
+            }
             { id = "MediaMini"; }
           ];
           center = [{ id = "Workspace"; }];
@@ -43,7 +46,7 @@
             { id = "Clock"; }
             {
               id = "ControlCenter";
-              useDistroLogo = false;
+              useDistroLogo = true;
             }
           ];
         };
