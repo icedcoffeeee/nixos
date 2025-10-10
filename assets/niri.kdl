@@ -620,6 +620,8 @@ binds {
     Mod+Alt+R hotkey-overlay-title="Start/Stop Screen Recording" { spawn-sh "noctalia-shell ipc call screenRecorder toggle"; }
     Mod+S hotkey-overlay-title="Open Settings" { spawn-sh "noctalia-shell ipc call settings toggle"; }
     Mod+E { spawn "nautilus"; }
+    Mod+B hotkey-overlay-title="Open Browser" { spawn-sh "flatpak run app.zen_browser.zen"; }
+    Mod+M hotkey-overlay-title="Open Music" { spawn "youtube-music"; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
