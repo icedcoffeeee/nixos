@@ -6,7 +6,7 @@
 
       bar = {
         position = "top";
-        backgroundOpacity = 1;
+        backgroundOpacity = 0;
         monitors = [ ];
         density = "default";
         showCapsule = true;
