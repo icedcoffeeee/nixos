@@ -57,9 +57,9 @@ in {
     evince
     imagemagick
     inkscape
+    kdePackages.dolphin
     krita
     libreoffice
     loupe
-    nautilus
   ];
 }
