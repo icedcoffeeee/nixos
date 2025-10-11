@@ -39,7 +39,24 @@
           inputs.nix-flatpak.nixosModules.nix-flatpak
           inputs.noctalia.nixosModules.default
           ./system
-          ./home
+
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = { inherit inputs user host; };
+            };
+
+            home-manager.users.${user} = {
+              home.stateVersion = "25.05";
+
+              imports = [
+                inputs.nixvim.homeManagerModules.nixvim
+                inputs.noctalia.homeModules.default
+                ./home
+              ];
+            };
+          }
         ];
       };
     };

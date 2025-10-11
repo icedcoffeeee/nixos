@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, user, ... }: {
   imports = [
     # impure! needs a minimal nixos config
     /etc/nixos/hardware-configuration.nix
@@ -29,4 +29,18 @@
 
   programs.regreet.enable = true;
   programs.regreet.settings.GTK.application_prefer_dark_theme = true;
+
+  users.users.${user} = {
+    isNormalUser = true;
+    description = user;
+    extraGroups = [
+      "networkmanager"
+      "video"
+      "wheel"
+
+      "adbusers"
+      "docker"
+    ];
+    shell = pkgs.zsh;
+  };
 }
