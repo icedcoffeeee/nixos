@@ -1,5 +1,5 @@
-#! /usr/bin/env nix-shell
-#! nix-shell -p vim git
+#!/usr/bin/env nix-shell
+#!nix-shell -p vim git
 git clone https://github.com/icedcoffeeee/nixos
 cd nixos
 vim flake.nix
