@@ -6,6 +6,7 @@
     ./hardware.nix
     ./packages.nix
     ./services.nix
+    ./systemd.nix
     ./etc.nix
   ];
 
@@ -17,6 +18,7 @@
 
   virtualisation.docker.enable = true;
   xdg.portal.wlr.enable = true;
+  nixpkgs.overlays = [ inputs.dolphin.overlays.default ];
 
   programs.adb.enable = true;
   programs.niri.enable = true;

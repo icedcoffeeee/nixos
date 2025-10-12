@@ -1,6 +1,4 @@
-{ config, pkgs, host, ... }:
-
-{
+{ config, pkgs, host, ... }: {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   boot.loader.systemd-boot.enable = true;
@@ -31,5 +29,4 @@
   nixpkgs.config.allowUnfree = true;
   networking.firewall.enable = false;
   system.stateVersion = "25.05";
-
 }
