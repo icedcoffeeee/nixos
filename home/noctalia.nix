@@ -5,15 +5,16 @@
       settingsVersion = 15;
 
       bar = {
-        position = "top";
-        backgroundOpacity = 0;
-        monitors = [ ];
+        backgroundOpacity = 1;
         density = "default";
-        showCapsule = true;
-        floating = true;
-        marginVertical = 0.25;
+        floating = false;
         marginHorizontal = 0.25;
+        marginVertical = 0.25;
+        monitors = [ ];
+        position = "top";
+        showCapsule = false;
         widgets = {
+          center = [ ];
           left = [
             {
               id = "SystemMonitor";
@@ -25,26 +26,65 @@
               showNetworkStats = true;
             }
             {
-              id = "ActiveWindow";
-              showIcon = false;
+              hideUnoccupied = false;
+              id = "Workspace";
+              labelMode = "index";
             }
-            { id = "MediaMini"; }
+            {
+              id = "Taskbar";
+              onlyActiveWorkspaces = true;
+              onlySameOutput = true;
+            }
           ];
-          center = [{ id = "Workspace"; }];
           right = [
-            { id = "Tray"; }
+            {
+              autoHide = false;
+              id = "MediaMini";
+              scrollingMode = "hover";
+              showAlbumArt = false;
+              showVisualizer = false;
+              visualizerType = "linear";
+            }
             { id = "ScreenRecorder"; }
-            { id = "NotificationHistory"; }
+            {
+              displayMode = "onhover";
+              id = "Microphone";
+            }
+            {
+              displayMode = "onhover";
+              id = "Volume";
+            }
+            {
+              displayMode = "onhover";
+              id = "Brightness";
+            }
+            {
+              displayMode = "alwaysShow";
+              id = "Battery";
+              warningThreshold = 30;
+            }
+            {
+              blacklist = [ ];
+              id = "Tray";
+            }
             { id = "WiFi"; }
             { id = "Bluetooth"; }
             {
-              id = "Battery";
-              displayMode = "alwaysShow";
+              hideWhenZero = true;
+              id = "NotificationHistory";
+              showUnreadBadge = true;
             }
-            { id = "Volume"; }
-            { id = "Brightness"; }
-            { id = "Clock"; }
             {
+              customFont = "";
+              formatHorizontal = "HH:mm ddd; MMM dd";
+              formatVertical = "HH mm - dd MM";
+              id = "Clock";
+              useCustomFont = false;
+              usePrimaryColor = true;
+            }
+            {
+              customIconPath = "";
+              icon = "noctalia";
               id = "ControlCenter";
               useDistroLogo = true;
             }

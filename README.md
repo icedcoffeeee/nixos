@@ -1,6 +1,6 @@
 # icedcoffeeee's nixos
 
-![screenshot](./assets/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/icedcoffeeee/nixos/main/assets/screenshot.png)
 
 ## main stack
 - [niri compositor](https://github.com/YaLTeR/niri)
