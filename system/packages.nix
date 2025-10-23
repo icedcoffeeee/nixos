@@ -17,11 +17,13 @@ in {
     perl
     rustup
     typst
+    uv
 
     (python312.withPackages
       (p: with p; [ numpy matplotlib pyqt6 ipython scipy sympy ]))
 
     # utilities
+    appimage-run
     btop
     cairo
     curl

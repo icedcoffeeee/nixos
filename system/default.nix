@@ -23,6 +23,7 @@
   programs.adb.enable = true;
   programs.niri.enable = true;
   programs.zsh.enable = true;
+  programs.nix-ld.enable = true;
 
   programs.xss-lock.enable = true;
   programs.xss-lock.lockerCommand =

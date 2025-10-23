@@ -12,7 +12,7 @@
   services.flatpak.enable = true;
   services.flatpak.packages = [ "app.zen_browser.zen" ];
   services.flatpak.overrides.global.Context.filesystems =
-    [ "~/Downloads" "/nix/store:ro" ];
+    [ "host" "/nix/store:ro" ];
 
   services.greetd = {
     enable = true;
