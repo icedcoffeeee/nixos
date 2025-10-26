@@ -4,6 +4,7 @@
     /etc/nixos/hardware-configuration.nix
 
     ./hardware.nix
+    ./overlays.nix
     ./packages.nix
     ./services.nix
     ./systemd.nix
