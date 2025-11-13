@@ -6,6 +6,7 @@
 
   networking.hostName = host;
   networking.networkmanager.enable = true;
+  networking.hosts = { "192.168.0.133" = [ "server" ]; };
 
   time.timeZone = "Asia/Kuala_Lumpur";
   i18n.defaultLocale = "en_US.UTF-8";

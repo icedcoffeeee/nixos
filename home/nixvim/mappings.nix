@@ -1,11 +1,14 @@
 { ... }:
 {
   keymaps = [
+    { mode = "n"; key = "<leader>k"; action = "<cmd>BufferLineCycleNext<cr>"; options = { desc = "Next buffer"; silent = true; }; }
     { mode = "n"; key = "<leader>j"; action = "<cmd>BufferLineCyclePrev<cr>"; options = { desc = "Previous buffer"; silent = true; }; }
     { mode = "n"; key = "<leader>k"; action = "<cmd>BufferLineCycleNext<cr>"; options = { desc = "Next buffer"; silent = true; }; }
     { mode = "n"; key = "<leader>q"; action = "<cmd>bn|bd#<cr>"; options = { desc = "Delete buffer"; silent = true; }; }
     { mode = "n"; key = "<leader>b"; action = "<cmd>BufferLineSortByDirectory<cr>"; options = { desc = "Sort buffelinee by directory"; silent = true; }; }
     { mode = "n"; key = "<leader>l"; action = ":vs term://bash<cr>a"; options = { desc = "Open vertical terminal"; silent = true; }; }
+    { mode = "n"; key = "<c-s-i>";   action = "<cmd>BufferLineMovePrev<cr>"; options = { desc = "Move buffer left"; silent = true; }; }
+    { mode = "n"; key = "<c-s-o>";   action = "<cmd>BufferLineMoveNext<cr>"; options = { desc = "Move buffer left"; silent = true; }; }
 
     { mode = "n"; key = "<c-h>"; action = "<c-w><c-h>"; options = { desc = "Move focus to the left window"; silent = true; }; }
     { mode = "n"; key = "<c-l>"; action = "<c-w><c-l>"; options = { desc = "Move focus to the right window"; silent = true; }; }

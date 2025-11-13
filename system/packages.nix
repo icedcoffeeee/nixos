@@ -12,6 +12,7 @@ in {
     gcc14
     gdb
     gnumake
+    gnumeric
     go
     nodejs_24
     perl
