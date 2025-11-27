@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   options = { multicursor.enable = true; };
   config = {
     extraPlugins = [
@@ -17,14 +16,14 @@
       local set = vim.keymap.set
       local mc = require("multicursor-nvim")
       mc.setup()
-    
+
       set({ "n", "v" }, "<M-k>", function() mc.lineAddCursor(-1) end, { desc = "add cursor above" })
       set({ "n", "v" }, "<M-j>", function() mc.lineAddCursor(1) end, { desc = "add cursor below" })
       set({ "n", "v" }, "<C-n>", function() mc.matchAddCursor(1) end, { desc = "Add cursor by matching word/selection" })
       set({ "n", "v" }, "<M-a>", mc.matchAllAddCursors, { desc = "Add all matches" })
       set({ "n", "v" }, "<c-q>", mc.toggleCursor, { desc = "Add and remove cursors" })
       set("n", "<c-leftmouse>", mc.handleMouse, { desc = "Add and remove cursors with mouse" })
-    
+
       set(
         "n", "<esc>",
         function()
@@ -34,14 +33,14 @@
         end,
         { desc = "Remove cursors and highlight" }
       )
-    
+
       set("v", "I", mc.insertVisual, { desc = "Insert for each line of visual selections" })
       set("v", "A", mc.appendVisual, { desc = "Append for each line of visual selections" })
       set("v", "M", mc.matchCursors, { desc = "Match new cursors within visual selections by regex" })
-    
+
       set({ "v", "n" }, "<c-i>", mc.jumpForward, { desc = "jumplist forward" })
       set({ "v", "n" }, "<c-o>", mc.jumpBackward, { desc = "jumplist backward" })
-    
+
       local hl = vim.api.nvim_set_hl
       hl(0, "MultiCursorCursor", { link = "Cursor" })
       hl(0, "MultiCursorVisual", { link = "Visual" })

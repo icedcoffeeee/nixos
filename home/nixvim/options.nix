@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   globals = {
     mapleader = " ";
     maplocalleader = " ";
@@ -32,9 +31,13 @@
     hlsearch = true;
 
     list = true;
-    listchars = { tab = "  "; trail = "·"; nbsp = "␣"; };
+    listchars = {
+      tab = "  ";
+      trail = "·";
+      nbsp = "␣";
+    };
 
-    inccommand = "split";  # preview substitutions live as you type
+    inccommand = "split"; # preview substitutions live as you type
     cursorline = true;
     scrolloff = 10;
     foldexpr = "v:lua.vim.treesitter.foldexpr()";
@@ -54,11 +57,9 @@
         function()
         vim.highlight.on_yank()
         end
-        '';
+      '';
     }
   ];
 
-  autoGroups = {
-    kickstart-highlight-yank = { clear = true; };
-  };
+  autoGroups = { kickstart-highlight-yank = { clear = true; }; };
 }

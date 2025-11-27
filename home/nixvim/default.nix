@@ -1,10 +1,9 @@
-{ ... }:
-{
+{ ... }: {
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
 
-    colorschemes.onedark = { 
+    colorschemes.onedark = {
       enable = true;
       settings.style = "deep";
     };
@@ -20,10 +19,6 @@
     clipboard.register = "unnamedplus";
     clipboard.providers.xclip.enable = true;
 
-    imports = [
-      ./options.nix
-      ./mappings.nix
-      ./plugins
-    ];
+    imports = [ ./options.nix ./mappings.nix ./plugins ];
   };
 }

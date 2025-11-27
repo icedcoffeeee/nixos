@@ -24,7 +24,7 @@
   programs.adb.enable = true;
   programs.niri.enable = true;
   programs.zsh.enable = true;
-  programs.nix-ld.enable = true;  # for uv
+  programs.nix-ld.enable = true; # for uv
 
   programs.xss-lock.enable = true;
   programs.xss-lock.lockerCommand =

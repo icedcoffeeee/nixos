@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   plugins = {
     cmp-buffer.enable = true;
     cmp-emoji.enable = true;
@@ -10,9 +9,7 @@
     cmp = {
       enable = true;
       settings = {
-        completion = {
-          completeopt = "menu,menuone,noinsert";
-        };
+        completion = { completeopt = "menu,menuone,noinsert"; };
         autoEnableSources = true;
         experimental = { ghost_text = true; };
         performance = {
@@ -20,25 +17,39 @@
           fetchingTimeout = 200;
           maxViewEntries = 30;
         };
-        snippet = { 
+        snippet = {
           expand = ''
             function(args)
             require('luasnip').lsp_expand(args.body)
             end
-            '';
+          '';
         };
         formatting = { fields = [ "kind" "abbr" "menu" ]; };
         sources = [
-        { name = "nvim_lsp"; }
-        { name = "emoji"; }
-        # text within current buffer
-        { name = "buffer"; option.get_bufnrs.__raw = "vim.api.nvim_list_bufs"; keywordLength = 3; }
-        # file system paths
-        { name = "path"; keywordLength = 3; }
-        # from nvim lua API
-        { name = "nvim_lua"; }
-        # snippets
-        { name = "luasnip"; keywordLength = 3; }
+          { name = "nvim_lsp"; }
+          {
+            name = "emoji";
+          }
+          # text within current buffer
+          {
+            name = "buffer";
+            option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
+            keywordLength = 3;
+          }
+          # file system paths
+          {
+            name = "path";
+            keywordLength = 3;
+          }
+          # from nvim lua API
+          {
+            name = "nvim_lua";
+          }
+          # snippets
+          {
+            name = "luasnip";
+            keywordLength = 3;
+          }
         ];
 
         window = {
@@ -55,16 +66,18 @@
           "<C-u>" = "cmp.mapping.scroll_docs(-4)";
           "<C-d>" = "cmp.mapping.scroll_docs(4)";
           # Luasnip
-          "<C-l>" = "cmp.mapping(function(fallback)
-            if require('luasnip').locally_jumpable(1)
-            then require('luasnip').jump(1)
-            else fallback() end
-          end, {'i','s'})";
-          "<C-j>" = "cmp.mapping(function(fallback)
-            if require('luasnip').locally_jumpable(-1)
-            then require('luasnip').jump(-1)
-            else fallback() end
-          end, {'i','s'})";
+          "<C-l>" = ''
+            cmp.mapping(function(fallback)
+                        if require('luasnip').locally_jumpable(1)
+                        then require('luasnip').jump(1)
+                        else fallback() end
+                      end, {'i','s'})'';
+          "<C-j>" = ''
+            cmp.mapping(function(fallback)
+                        if require('luasnip').locally_jumpable(-1)
+                        then require('luasnip').jump(-1)
+                        else fallback() end
+                      end, {'i','s'})'';
         };
       };
     };

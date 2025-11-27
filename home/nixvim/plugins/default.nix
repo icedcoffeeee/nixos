@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   plugins = {
     fidget.enable = true;
     flash.enable = true;
