@@ -17,7 +17,9 @@
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
     noctalia.inputs.quickshell.follows = "quickshell";
 
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
+    zen.url = "github:0xc000022070/zen-browser-flake";
+    zen.inputs.nixpkgs.follows = "nixpkgs";
+    zen.inputs.home-manager.follows = "home-manager";
 
     sunsetr.url = "github:psi4j/sunsetr";
     sunsetr.inputs.nixpkgs.follows = "nixpkgs";
@@ -37,7 +39,6 @@
         specialArgs = { inherit inputs user host; };
         modules = [
           inputs.home-manager.nixosModules.home-manager
-          inputs.nix-flatpak.nixosModules.nix-flatpak
           inputs.noctalia.nixosModules.default
           ./system
 

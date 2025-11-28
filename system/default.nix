@@ -7,6 +7,7 @@
     ./overlays.nix
     ./packages.nix
     ./services.nix
+    ./browser.nix
     ./systemd.nix
     ./etc.nix
   ];

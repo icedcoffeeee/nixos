@@ -6,7 +6,7 @@
 
   xdg.mimeApps = let
     evince = "org.gnome.Evince.desktop";
-    zen = "app.zen_browser.zen.desktop";
+    zen = "zen-twilight.desktop";
     loupe = "org.gnome.Loupe.desktop";
   in {
     enable = true;
