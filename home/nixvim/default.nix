@@ -3,19 +3,7 @@
     enable = true;
     defaultEditor = true;
 
-    colorschemes.onedark = {
-      enable = true;
-      settings.style = "deep";
-    };
-
-    colorschemes.tokyonight = {
-      enable = false;
-      settings.styles = {
-        sidebars = "transparent";
-        float = "transparent";
-      };
-    };
-
+    colorschemes.onedark.enable = true;
     clipboard.register = "unnamedplus";
     clipboard.providers.xclip.enable = true;
 

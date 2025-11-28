@@ -33,7 +33,6 @@
       font_size = "12";
       tab_bar_edge = "top";
       tab_bar_style = "powerline";
-      background_opacity = "0.7";
       window_padding_width = "2";
       italic_font = "auto";
       bold_font = "auto";
