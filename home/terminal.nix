@@ -10,6 +10,7 @@ let
     ll = "ls -alF";
     mk = "mkdir -p";
     ps = "ps -A|rg";
+    ff = "fastfetch";
     rgf = "rg --files|rg ";
 
     ns = "nix-shell";

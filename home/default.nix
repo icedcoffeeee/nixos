@@ -6,6 +6,7 @@
     ./services.nix
     ./terminal.nix
     ./xdg.nix
+    ./ff.nix
   ];
 
   programs.git = {
@@ -45,6 +46,4 @@
     };
     themeFile = "OneDark";
   };
-
-  programs.fastfetch.enable = true;
 }
