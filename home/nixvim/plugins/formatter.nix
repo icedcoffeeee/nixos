@@ -24,6 +24,8 @@
       prettierd
     ];
     extraConfigLua = ''
+      local util = require("formatter.util")
+
       local filetype = {
         lua = require("formatter.filetypes.lua").stylua,
 
@@ -35,7 +37,8 @@
         rust = require("formatter.filetypes.rust").rustfmt,
         tex = require("formatter.filetypes.tex").latexindent,
         nix = require("formatter.filetypes.nix").nixfmt,
-        typ = { exe = "typstyle", args = "-i"  },
+
+        typst = function() return { exe = "typstyle", args = { "-i" } } end,
       }
 
       local prettier = {
