@@ -56,7 +56,7 @@
     }
     {
       mode = "n";
-      key = "<c-s-i>";
+      key = "<m-h>";
       action = "<cmd>BufferLineMovePrev<cr>";
       options = {
         desc = "Move buffer left";
@@ -65,10 +65,10 @@
     }
     {
       mode = "n";
-      key = "<c-s-o>";
+      key = "<m-l>";
       action = "<cmd>BufferLineMoveNext<cr>";
       options = {
-        desc = "Move buffer left";
+        desc = "Move buffer right";
         silent = true;
       };
     }
