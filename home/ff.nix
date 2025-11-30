@@ -2,7 +2,7 @@
   programs.fastfetch.enable = true;
   programs.fastfetch.settings = {
     logo = {
-      source = ../assets/mai-senpai.png;
+      source = ../assets/nixos.png;
       type = "kitty";
       width = 20;
       padding = {
