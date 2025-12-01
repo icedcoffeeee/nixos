@@ -4,16 +4,16 @@
   services.upower.enable = true;
   services.noctalia-shell.enable = true;
 
-  services.logind.extraConfig = ''
-    HandlePowerKey = suspend
-    HandlePowerKeyLongPress = poweroff
-  '';
+  services.logind.settings.Login = {
+    HandlePowerKey = "suspend";
+    HandlePowerKeyLongPress = "poweroff";
+  };
 
   services.greetd = {
     enable = true;
     settings = {
       default_session = let
-        regreet = "${pkgs.greetd.regreet}/bin/regreet";
+        regreet = "${pkgs.regreet}/bin/regreet";
         niri = "${pkgs.niri}/bin/niri";
         greet = pkgs.writeText "greet" ''
           spawn-sh-at-startup "${regreet}; ${niri} msg action quit --skip-confirmation"

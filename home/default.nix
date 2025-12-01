@@ -11,9 +11,11 @@
 
   programs.git = {
     enable = true;
-    userName = "icedcoffeeee";
-    userEmail = "83535735+icedcoffeeee@users.noreply.github.com";
-    extraConfig.init.defaultBranch = "main";
+    settings = {
+      user.name = "icedcoffeeee";
+      user.email = "83535735+icedcoffeeee@users.noreply.github.com";
+      init.defaultBranch = "main";
+    };
   };
 
   programs.gh = {

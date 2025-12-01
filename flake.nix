@@ -2,12 +2,12 @@
   description = "icedcoffeeee's nixos config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 
-    home-manager.url = "github:nix-community/home-manager/release-25.05";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixvim.url = "github:nix-community/nixvim/nixos-25.05";
+    nixvim.url = "github:nix-community/nixvim/nixos-25.11";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
     quickshell.url = "github:outfoxxed/quickshell";
@@ -15,7 +15,6 @@
 
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
-    noctalia.inputs.quickshell.follows = "quickshell";
 
     zen.url = "github:0xc000022070/zen-browser-flake";
     zen.inputs.nixpkgs.follows = "nixpkgs";
@@ -36,7 +35,7 @@
     in {
       nixosConfigurations.${host} = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs user host; };
+        specialArgs = { inherit inputs system user host; };
         modules = [
           inputs.home-manager.nixosModules.home-manager
           inputs.noctalia.nixosModules.default
@@ -46,14 +45,14 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = { inherit inputs user host; };
+              extraSpecialArgs = { inherit inputs system user host; };
             };
 
             home-manager.users.${user} = {
-              home.stateVersion = "25.05";
+              home.stateVersion = "25.11";
 
               imports = [
-                inputs.nixvim.homeManagerModules.nixvim
+                inputs.nixvim.homeModules.nixvim
                 inputs.noctalia.homeModules.default
                 ./home
               ];

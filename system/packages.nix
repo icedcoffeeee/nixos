@@ -1,7 +1,7 @@
-{ inputs, pkgs, ... }:
+{ inputs, system, pkgs, ... }:
 let
-  noctalia = inputs.noctalia.packages.${pkgs.system}.default;
-  sunsetr = inputs.sunsetr.packages.${pkgs.system}.sunsetr;
+  noctalia = inputs.noctalia.packages.${system}.default;
+  sunsetr = inputs.sunsetr.packages.${system}.sunsetr;
 in {
   environment.systemPackages = with pkgs; [
     # code

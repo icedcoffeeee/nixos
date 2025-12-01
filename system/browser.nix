@@ -1,3 +1,3 @@
-{ pkgs, inputs, ... }: {
-  environment.systemPackages = [ inputs.zen.packages.${pkgs.system}.twilight ];
+{ pkgs, inputs, system, ... }: {
+  environment.systemPackages = [ inputs.zen.packages.${system}.twilight ];
 }

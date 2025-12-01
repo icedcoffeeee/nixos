@@ -1,4 +1,4 @@
-{ inputs, pkgs, user, ... }: {
+{ inputs, pkgs, system, user, ... }: {
   imports = [
     # impure! needs a minimal nixos config
     /etc/nixos/hardware-configuration.nix
@@ -12,7 +12,7 @@
     ./etc.nix
   ];
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 
   fonts.packages = with pkgs; with pkgs.nerd-fonts; [ jetbrains-mono karla ];
   fonts.fontconfig.defaultFonts.sansSerif = [ "Karla" ];
@@ -29,7 +29,7 @@
 
   programs.xss-lock.enable = true;
   programs.xss-lock.lockerCommand =
-    let noctalia = inputs.noctalia.packages.${pkgs.system}.default;
+    let noctalia = inputs.noctalia.packages.${system}.default;
     in "${noctalia}/bin/noctalia-shell ipc call lockScreen toggle";
 
   programs.regreet.enable = true;

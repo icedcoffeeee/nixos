@@ -29,5 +29,4 @@
 
   nixpkgs.config.allowUnfree = true;
   networking.firewall.enable = false;
-  system.stateVersion = "25.05";
 }
