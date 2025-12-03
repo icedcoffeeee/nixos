@@ -1,13 +1,14 @@
 { ... }: {
   imports = [
     ./nixvim
-    ./noctalia.nix
     ./packages.nix
     ./services.nix
     ./terminal.nix
     ./xdg.nix
     ./ff.nix
   ];
+
+  programs.dankMaterialShell.enable = true;
 
   programs.git = {
     enable = true;

@@ -1,6 +1,5 @@
 { inputs, system, pkgs, ... }:
 let
-  noctalia = inputs.noctalia.packages.${system}.default;
   sunsetr = inputs.sunsetr.packages.${system}.sunsetr;
 in {
   environment.systemPackages = with pkgs; [
@@ -56,7 +55,6 @@ in {
     zip
 
     # graphics
-    noctalia
     evince
     imagemagick
     inkscape

@@ -27,13 +27,11 @@
   programs.zsh.enable = true;
   programs.nix-ld.enable = true; # for uv
 
-  programs.xss-lock.enable = true;
-  programs.xss-lock.lockerCommand =
-    let noctalia = inputs.noctalia.packages.${system}.default;
-    in "${noctalia}/bin/noctalia-shell ipc call lockScreen toggle";
-
-  programs.regreet.enable = true;
-  programs.regreet.settings.GTK.application_prefer_dark_theme = true;
+  programs.dankMaterialShell.enable = true;
+  programs.dankMaterialShell.greeter = {
+    enable = true;
+    compositor.name = "niri";
+  };
 
   users.users.${user} = {
     isNormalUser = true;
