@@ -9,6 +9,8 @@
   ];
 
   programs.dankMaterialShell.enable = true;
+  programs.dankMaterialShell.default.settings =
+    builtins.fromJSON (builtins.readFile ../assets/dms.json);
 
   programs.git = {
     enable = true;

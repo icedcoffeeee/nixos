@@ -57,10 +57,6 @@ layout {
   }
   struts {}
 }
-spawn-at-startup "sunsetr"
-hotkey-overlay {
-  skip-at-startup
-}
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 animations {}
 window-rule {
@@ -71,21 +67,82 @@ window-rule {
   match app-id=r#"zen"# title="^Picture-in-Picture$"
   open-floating true
 }
-/-window-rule {
-  match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-  match app-id=r#"^org\.gnome\.World\.Secrets$"#
-  block-out-from "screen-capture"
-}
 window-rule {
   geometry-corner-radius 5
   clip-to-geometry true
   draw-border-with-background false
 }
+hotkey-overlay {
+  skip-at-startup
+}
+
+spawn-at-startup "sunsetr"
+spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
+spawn-at-startup "dms" "run"
+spawn-at-startup "{{POLKIT_AGENT_PATH}}"
+environment {
+  XDG_CURRENT_DESKTOP "niri"
+  QT_QPA_PLATFORM "wayland"
+  ELECTRON_OZONE_PLATFORM_HINT "auto"
+  QT_QPA_PLATFORMTHEME "gtk3"
+  QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+  TERMINAL "kitty"
+}
+
 binds {
+  Mod+T hotkey-overlay-title="Open Terminal" { spawn "kitty"; }
+  Mod+E hotkey-overlay-title="Open Files"    { spawn "dolphin"; }
+  Mod+B hotkey-overlay-title="Open Browser"  { spawn "zen"; }
+  Mod+M hotkey-overlay-title="Open Music"    { spawn "youtube-music"; }
+
+  Alt+Tab { spawn "niri" "msg" "action" "toggle-overview"; }
+  Mod+Tab repeat=false { toggle-overview; }
   Mod+Shift+Slash { show-hotkey-overlay; }
-  Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-  Alt+Tab repeat=false { toggle-overview; }
+  Mod+A hotkey-overlay-title="Application Launcher" {
+    spawn "dms" "ipc" "call" "spotlight" "toggle";
+  }
+  Mod+V hotkey-overlay-title="Clipboard Manager" {
+    spawn "dms" "ipc" "call" "clipboard" "toggle";
+  }
+  Mod+S hotkey-overlay-title="Settings" {
+    spawn "dms" "ipc" "call" "settings" "focusOrToggle";
+  }
+  Mod+Y hotkey-overlay-title="Browse Wallpapers" {
+    spawn "dms" "ipc" "call" "dankdash" "wallpaper";
+  }
+  Mod+N hotkey-overlay-title="Notification Center" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
+  Mod+Shift+N hotkey-overlay-title="Notepad" { spawn "dms" "ipc" "call" "notepad" "toggle"; }
+  Mod+Alt+L hotkey-overlay-title="Lock Screen" {
+    spawn "dms" "ipc" "call" "lock" "lock";
+  }
+  Mod+Shift+E { quit; }
+  Ctrl+Alt+Delete hotkey-overlay-title="Power Menu" {
+    spawn "dms" "ipc" "call" "powermenu" "toggle";
+  }
+  XF86AudioRaiseVolume allow-when-locked=true {
+    spawn "dms" "ipc" "call" "audio" "increment" "3";
+  }
+  XF86AudioLowerVolume allow-when-locked=true {
+    spawn "dms" "ipc" "call" "audio" "decrement" "3";
+  }
+  XF86AudioMute allow-when-locked=true {
+    spawn "dms" "ipc" "call" "audio" "mute";
+  }
+  XF86AudioMicMute allow-when-locked=true {
+    spawn "dms" "ipc" "call" "audio" "micmute";
+  }
+  XF86MonBrightnessUp allow-when-locked=true {
+    spawn "dms" "ipc" "call" "brightness" "increment" "5" "";
+  }
+  XF86MonBrightnessDown allow-when-locked=true {
+    spawn "dms" "ipc" "call" "brightness" "decrement" "5" "";
+  }
   Mod+Q repeat=false { close-window; }
+  Mod+F { maximize-column; }
+  Mod+Shift+F { fullscreen-window; }
+  Mod+Shift+T { toggle-window-floating; }
+  Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+  Mod+W { toggle-column-tabbed-display; }
   Mod+Left  { focus-column-left; }
   Mod+Down  { focus-window-down; }
   Mod+Up    { focus-window-up; }
@@ -107,8 +164,6 @@ binds {
   Mod+Ctrl+Home { move-column-to-first; }
   Mod+Ctrl+End  { move-column-to-last; }
   Mod+Ctrl+Left  { focus-monitor-left; }
-  Mod+Ctrl+Down  { focus-monitor-down; }
-  Mod+Ctrl+Up    { focus-monitor-up; }
   Mod+Ctrl+Right { focus-monitor-right; }
   Mod+Ctrl+H     { focus-monitor-left; }
   Mod+Ctrl+J     { focus-monitor-down; }
@@ -126,8 +181,8 @@ binds {
   Mod+Page_Up        { focus-workspace-up; }
   Mod+U              { focus-workspace-down; }
   Mod+I              { focus-workspace-up; }
-  Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
-  Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
+  Mod+Ctrl+Down { move-column-to-workspace-down; }
+  Mod+Ctrl+Up   { move-column-to-workspace-up; }
   Mod+Ctrl+U         { move-column-to-workspace-down; }
   Mod+Ctrl+I         { move-column-to-workspace-up; }
   Mod+Shift+Page_Down { move-workspace-down; }
@@ -155,24 +210,21 @@ binds {
   Mod+7 { focus-workspace 7; }
   Mod+8 { focus-workspace 8; }
   Mod+9 { focus-workspace 9; }
-  Mod+Ctrl+1 { move-column-to-workspace 1; }
-  Mod+Ctrl+2 { move-column-to-workspace 2; }
-  Mod+Ctrl+3 { move-column-to-workspace 3; }
-  Mod+Ctrl+4 { move-column-to-workspace 4; }
-  Mod+Ctrl+5 { move-column-to-workspace 5; }
-  Mod+Ctrl+6 { move-column-to-workspace 6; }
-  Mod+Ctrl+7 { move-column-to-workspace 7; }
-  Mod+Ctrl+8 { move-column-to-workspace 8; }
-  Mod+Ctrl+9 { move-column-to-workspace 9; }
+  Mod+Shift+1 { move-column-to-workspace 1; }
+  Mod+Shift+2 { move-column-to-workspace 2; }
+  Mod+Shift+3 { move-column-to-workspace 3; }
+  Mod+Shift+4 { move-column-to-workspace 4; }
+  Mod+Shift+5 { move-column-to-workspace 5; }
+  Mod+Shift+6 { move-column-to-workspace 6; }
+  Mod+Shift+7 { move-column-to-workspace 7; }
+  Mod+Shift+8 { move-column-to-workspace 8; }
+  Mod+Shift+9 { move-column-to-workspace 9; }
   Mod+BracketLeft  { consume-or-expel-window-left; }
   Mod+BracketRight { consume-or-expel-window-right; }
-  Mod+Comma  { consume-window-into-column; }
   Mod+Period { expel-window-from-column; }
   Mod+R { switch-preset-column-width; }
   Mod+Shift+R { switch-preset-window-height; }
   Mod+Ctrl+R { reset-window-height; }
-  Mod+F { maximize-column; }
-  Mod+Shift+F { fullscreen-window; }
   Mod+Ctrl+F { expand-column-to-available-width; }
   Mod+C { center-column; }
   Mod+Ctrl+C { center-visible-columns; }
@@ -180,41 +232,12 @@ binds {
   Mod+Equal { set-column-width "+10%"; }
   Mod+Shift+Minus { set-window-height "-10%"; }
   Mod+Shift+Equal { set-window-height "+10%"; }
-  Mod+W       { toggle-window-floating; }
-  Mod+Tab { switch-focus-between-floating-and-tiling; }
-  Print { screenshot; }
+  XF86Launch1 { screenshot; }
+  Ctrl+XF86Launch1 { screenshot-screen; }
+  Alt+XF86Launch1 { screenshot-window; }
   Mod+Shift+S { screenshot; }
+  Print { screenshot; }
   Ctrl+Print { screenshot-screen; }
   Alt+Print { screenshot-window; }
-
-  // Mod+Alt+R hotkey-overlay-title="Start/Stop Screen Recording" { spawn-sh "noctalia-shell ipc call screenRecorder toggle"; }
-  Mod+S hotkey-overlay-title="Open Settings" { spawn-sh "dms ipc call settings toggle"; }
-  Mod+E { spawn "dolphin"; }
-  Mod+B hotkey-overlay-title="Open Browser" { spawn-sh "zen"; }
-  Mod+M hotkey-overlay-title="Open Music" { spawn "youtube-music"; }
-  Ctrl+Alt+Delete { spawn-sh "dms ipc call powermenu toggle"; }
-  Mod+Shift+P { power-off-monitors; }
-
-  // === Defaults ===
-  Mod+A hotkey-overlay-title="Application Launcher" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
-  Mod+V hotkey-overlay-title="Clipboard Manager" { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
-  Mod+Escape hotkey-overlay-title="Task Manager" { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
-  Mod+S hotkey-overlay-title="Settings" { spawn "dms" "ipc" "call" "settings" "focusOrToggle"; }
-  Mod+N hotkey-overlay-title="Notification Center" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
-  Mod+Shift+N hotkey-overlay-title="Notepad" { spawn "dms" "ipc" "call" "notepad" "toggle"; }
-
-  // === Security ===
-  Mod+Alt+L hotkey-overlay-title="Lock Screen" { spawn "dms" "ipc" "call" "lock" "lock"; }
-  Mod+Shift+E { quit; }
-
-  // === Audio Controls ===
-  XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "3"; }
-  XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "3"; }
-  XF86AudioMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "mute"; }
-  XF86AudioMicMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "micmute"; }
-
-  // === Brightness Controls ===
-  XF86MonBrightnessUp allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "increment" "5" ""; }
-  XF86MonBrightnessDown allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "decrement" "5" ""; }
+  Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 }
-
