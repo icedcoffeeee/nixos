@@ -260,11 +260,11 @@
           "enabled": true
         },
         {
-          "id": "network_speed_monitor",
+          "id": "diskUsage",
           "enabled": true
         },
         {
-          "id": "diskUsage",
+          "id": "network_speed_monitor",
           "enabled": true
         }
       ],
