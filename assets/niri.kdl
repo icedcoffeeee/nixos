@@ -28,6 +28,7 @@ output "HDMI-A-1" {
   transform "normal"
   position x=0 y=0
 }
+prefer-no-csd
 layout {
   gaps 10
   center-focused-column "never"
