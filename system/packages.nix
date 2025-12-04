@@ -55,6 +55,7 @@ in {
     zip
 
     # graphics
+    adwaita-icon-theme
     evince
     imagemagick
     inkscape
