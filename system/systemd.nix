@@ -1,1 +1,1 @@
-{ pkgs, ... }: { systemd.user.services.niri-flake-polkit.enable = false; }
+{ pkgs, ... }: { systemd.user.services.niri-flake-polkit.enable = true; }
