@@ -10,7 +10,7 @@
   home.packages = with pkgs; [
     audacity
     blender
-    discord
+    vesktop
     godot
     mpv
     obs-studio
