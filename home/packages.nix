@@ -1,4 +1,12 @@
 { pkgs, ... }: {
+  home.file = {
+    record = {
+      executable = true;
+      source = ../assets/record;
+      target = ".local/bin/record";
+    };
+  };
+
   home.pointerCursor = {
     enable = true;
     name = "Posy_Cursor_Black";

@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+RECORDER=wl-screenrec
+if [[ $(ps -A|rg $RECORDER) ]] then
+  killall $RECORDER
+  notify-desktop "Stopped Screen Recording" -a $RECORDER
+else
+  AREA=$(slurp)
+  notify-desktop "Started Screen Recording" -a $RECORDER
+  OUT="$(date -Iminutes|sed 's/[:+-]//g').mp4"
+  $RECORDER -f "$OUT" -g "$AREA" &
+fi

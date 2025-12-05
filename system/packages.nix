@@ -1,6 +1,5 @@
 { inputs, system, pkgs, ... }:
-let
-  sunsetr = inputs.sunsetr.packages.${system}.sunsetr;
+let sunsetr = inputs.sunsetr.packages.${system}.sunsetr;
 in {
   environment.systemPackages = with pkgs; [
     # code
@@ -63,5 +62,10 @@ in {
     krita
     libreoffice
     loupe
+
+    # recording
+    slurp
+    wl-screenrec
+    notify-desktop
   ];
 }

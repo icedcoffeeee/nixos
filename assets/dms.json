@@ -118,7 +118,7 @@
   "spotlightCloseNiriOverview": true,
   "niriOverviewOverlayEnabled": true,
   "weatherLocation": "Kuala Lumpur",
-  "weatherCoordinates": "3.1526589,101.7022205",
+  "weatherCoordinates": "3.1319° N,101.6841° E",
   "useAutoLocation": false,
   "weatherEnabled": true,
   "networkPreference": "auto",
@@ -237,12 +237,7 @@
       "borderOpacity": 1,
       "borderThickness": 1,
       "bottomGap": 0,
-      "centerWidgets": [
-        {
-          "id": "focusedWindow",
-          "enabled": true
-        }
-      ],
+      "centerWidgets": [],
       "enabled": true,
       "fontScale": 1,
       "gothCornerRadiusOverride": false,
@@ -288,40 +283,40 @@
       "position": 0,
       "rightWidgets": [
         {
-          "enabled": true,
-          "id": "music"
+          "id": "music",
+          "enabled": true
         },
         {
-          "enabled": true,
-          "id": "systemTray"
+          "id": "systemTray",
+          "enabled": true
         },
         {
-          "enabled": true,
-          "id": "clipboard"
+          "id": "clipboard",
+          "enabled": true
         },
         {
-          "enabled": true,
-          "id": "notificationButton"
+          "id": "notificationButton",
+          "enabled": true
         },
         {
-          "enabled": true,
-          "id": "battery"
+          "id": "battery",
+          "enabled": true
         },
         {
-          "enabled": true,
-          "id": "controlCenterButton"
+          "id": "controlCenterButton",
+          "enabled": true
         },
         {
-          "enabled": true,
-          "id": "weather"
+          "id": "weather",
+          "enabled": true
         },
         {
-          "enabled": true,
-          "id": "clock"
+          "id": "clock",
+          "enabled": true
         },
         {
-          "enabled": true,
-          "id": "launcherButton"
+          "id": "launcherButton",
+          "enabled": true
         }
       ],
       "screenPreferences": [
