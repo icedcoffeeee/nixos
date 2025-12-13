@@ -14,6 +14,7 @@
     ];
     extraPackages = with pkgs; [
       shfmt
+      stylua
       llvmPackages_19.clang-tools
       typstyle
       nixfmt-classic
@@ -24,8 +25,6 @@
       prettierd
     ];
     extraConfigLua = ''
-      local util = require("formatter.util")
-
       local filetype = {
         lua = require("formatter.filetypes.lua").stylua,
 
