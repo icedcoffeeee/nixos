@@ -68,4 +68,9 @@ in {
     wl-screenrec
     notify-desktop
   ];
+
+  environment.variables = with pkgs.gcc14; {
+    CPATH =
+      "${cc}/include/c++/${version}:${cc}/include/c++/${version}/x86_64-unknown-linux-gnu";
+  };
 }
