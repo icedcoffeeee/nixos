@@ -25,6 +25,7 @@
   programs.adb.enable = true;
   programs.niri.enable = true;
   programs.zsh.enable = true;
+  programs.steam.enable = true;
   programs.nix-ld.enable = true; # for uv
 
   programs.dankMaterialShell.enable = true;
