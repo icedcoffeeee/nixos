@@ -41,10 +41,6 @@
         settings.tailwindCSS.classAttributes =
           [ "class" "className" "class:list" ".*ClassName.*" "tw" ];
       };
-      texlab = {
-        enable = true;
-        settings.texlab.build.args = [ "-lualatex" "-pvc" "-synctex=1" "%f" ];
-      };
     };
 
     keymaps = {

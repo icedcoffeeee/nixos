@@ -21,7 +21,6 @@
       ruff
       rustfmt
       nodePackages.prettier
-      texlivePackages.latexindent
       prettierd
     ];
     extraConfigLua = ''
@@ -34,7 +33,6 @@
 
         python = require("formatter.filetypes.python").ruff,
         rust = require("formatter.filetypes.rust").rustfmt,
-        tex = require("formatter.filetypes.tex").latexindent,
         nix = require("formatter.filetypes.nix").nixfmt,
 
         typst = function() return { exe = "typstyle", args = { "-i" } } end,

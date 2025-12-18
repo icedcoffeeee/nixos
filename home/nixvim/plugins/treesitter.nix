@@ -9,7 +9,6 @@
         "css"
         "glsl"
         "html"
-        "latex"
         "lua"
         "markdown"
         "python"
