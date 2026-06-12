@@ -2,20 +2,20 @@
   description = "icedcoffeeee's nixos config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nixvim.url = "github:nix-community/nixvim/nixos-25.11";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
     niri.url = "github:sodiboo/niri-flake";
     niri.inputs.nixpkgs.follows = "nixpkgs";
 
     dms.url = "github:AvengeMedia/DankMaterialShell";
     dms.inputs.nixpkgs.follows = "nixpkgs";
-    dms.inputs.dgop.inputs.nixpkgs.follows = "nixpkgs";
+    dgop.url = "github:AvengeMedia/dgop";
+    dgop.inputs.nixpkgs.follows = "nixpkgs";
 
     zen.url = "github:0xc000022070/zen-browser-flake";
     zen.inputs.nixpkgs.follows = "nixpkgs";

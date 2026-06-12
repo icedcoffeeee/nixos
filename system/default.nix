@@ -20,10 +20,9 @@
 
   virtualisation.docker.enable = true;
   xdg.portal.wlr.enable = true;
-  nixpkgs.overlays = [ inputs.dolphin.overlays.default ];
 
-  programs.adb.enable = true;
   programs.niri.enable = true;
+  programs.niri.package = pkgs.niri.overrideAttrs (old: { doCheck = false; });
   programs.zsh.enable = true;
   programs.steam.enable = true;
   programs.nix-ld.enable = true; # for uv

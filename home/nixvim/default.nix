@@ -1,6 +1,7 @@
 { ... }: {
   programs.nixvim = {
     enable = true;
+    nixpkgs.config.allowUnfree = true;
     defaultEditor = true;
 
     colorschemes.onedark.enable = true;

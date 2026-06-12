@@ -3,5 +3,5 @@
 
   boot.kernelModules = [ "v4l2loopback" ];
   boot.extraModulePackages = with pkgs.linuxKernel.packages;
-    [ linux_6_12.v4l2loopback ];
+    [ linux_6_18.v4l2loopback ];
 }

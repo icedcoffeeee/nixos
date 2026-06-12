@@ -18,10 +18,11 @@ in {
     typst
     uv
 
-    (python312.withPackages
+    (python313.withPackages
       (p: with p; [ numpy matplotlib pyqt6 ipython scipy sympy ]))
 
     # utilities
+    android-tools
     appimage-run
     btop
     cairo
