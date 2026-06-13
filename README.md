@@ -4,7 +4,7 @@
 
 ## main stack
 - [niri compositor](https://github.com/YaLTeR/niri)
-- [dank material quickshell](https://github.com/AvengeMedia/DankMaterialShell)
+- [noctalia quickshell](https://github.com/noctalia-dev/noctalia-shell)
 
 ## steal my config
 1. flash the minimal version of nixos (no desktop).
