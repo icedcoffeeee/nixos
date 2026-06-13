@@ -17,10 +17,10 @@
       stylua
       llvmPackages_19.clang-tools
       typstyle
-      nixfmt-classic
+      nixfmt
       ruff
       rustfmt
-      nodePackages.prettier
+      prettier
       prettierd
     ];
     extraConfigLua = ''

@@ -23,17 +23,13 @@
 
   programs.niri.enable = true;
   programs.niri.package = pkgs.niri.overrideAttrs (old: { doCheck = false; });
+
+  programs.noctalia-greeter.enable = true;
   programs.zsh.enable = true;
   programs.steam.enable = true;
   programs.nix-ld.enable = true; # for uv
 
-  programs.dankMaterialShell.enable = true;
-  programs.dankMaterialShell.greeter = {
-    enable = true;
-    compositor.name = "niri";
-  };
-
-  users.users.${user} = {
+ users.users.${user} = {
     isNormalUser = true;
     description = user;
     extraGroups = [

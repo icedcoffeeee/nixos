@@ -1,11 +1,5 @@
 { pkgs, ... }: {
-  home.file = {
-    record = {
-      executable = true;
-      source = ../assets/record;
-      target = ".local/bin/record";
-    };
-  };
+  home.file = { };
 
   home.pointerCursor = {
     enable = true;
@@ -24,7 +18,7 @@
     obs-studio
     obsidian
     todoist
-    youtube-music
+    pear-desktop
     zapzap
     zotero
     kdePackages.kdenlive

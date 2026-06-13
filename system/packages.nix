@@ -1,6 +1,4 @@
-{ inputs, system, pkgs, ... }:
-let sunsetr = inputs.sunsetr.packages.${system}.sunsetr;
-in {
+{ inputs, system, pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     # code
     bear
@@ -42,7 +40,6 @@ in {
     pango
     ripgrep
     scrcpy
-    sunsetr
     tree
     tree-sitter
     unzip
@@ -51,6 +48,7 @@ in {
     wget
     wl-clipboard
     xdg-utils
+    xmodmap
     xwayland-satellite
     zip
 
@@ -63,11 +61,6 @@ in {
     krita
     libreoffice
     loupe
-
-    # recording
-    slurp
-    wl-screenrec
-    notify-desktop
   ];
 
   environment.variables = {

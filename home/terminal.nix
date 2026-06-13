@@ -6,7 +6,7 @@ let
     gs = "git status";
     gd = "git diff --cached";
     ld = "lazydocker";
-    lg = "lazygit";
+    gg = "lazygit";
     ll = "ls -alF";
     mk = "mkdir -p";
     ps = "ps -A|rg";

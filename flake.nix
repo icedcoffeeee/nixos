@@ -2,27 +2,24 @@
   description = "icedcoffeeee's nixos config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
-    home-manager.url = "github:nix-community/home-manager/release-25.11";
+    home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixvim.url = "github:nix-community/nixvim/nixos-25.11";
+    nixvim.url = "github:nix-community/nixvim/nixos-26.05";
 
     niri.url = "github:sodiboo/niri-flake";
     niri.inputs.nixpkgs.follows = "nixpkgs";
 
-    dms.url = "github:AvengeMedia/DankMaterialShell";
-    dms.inputs.nixpkgs.follows = "nixpkgs";
-    dgop.url = "github:AvengeMedia/dgop";
-    dgop.inputs.nixpkgs.follows = "nixpkgs";
+    noctalia.url = "github:noctalia-dev/noctalia/legacy-v4";
+    noctalia.inputs.nixpkgs.follows = "nixpkgs";
+    noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
+    noctalia-greeter.inputs.nixpkgs.follows = "nixpkgs";
 
     zen.url = "github:0xc000022070/zen-browser-flake";
     zen.inputs.nixpkgs.follows = "nixpkgs";
     zen.inputs.home-manager.follows = "home-manager";
-
-    sunsetr.url = "github:psi4j/sunsetr";
-    sunsetr.inputs.nixpkgs.follows = "nixpkgs";
 
     dolphin.url = "github:rumboon/dolphin-overlay";
     dolphin.inputs.nixpkgs.follows = "nixpkgs";
@@ -40,8 +37,7 @@
         modules = [
           inputs.niri.nixosModules.niri
           inputs.home-manager.nixosModules.home-manager
-          inputs.dms.nixosModules.dankMaterialShell
-          inputs.dms.nixosModules.greeter
+          inputs.noctalia-greeter.nixosModules.default
           ./system
 
           {
@@ -56,8 +52,7 @@
 
               imports = [
                 inputs.nixvim.homeModules.nixvim
-                inputs.dms.homeModules.dankMaterialShell.default
-                inputs.dms.homeModules.dankMaterialShell.niri
+                inputs.noctalia.homeModules.default
                 ./home
               ];
             };
