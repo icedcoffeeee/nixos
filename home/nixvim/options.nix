@@ -42,6 +42,7 @@
     scrolloff = 10;
     foldexpr = "v:lua.vim.treesitter.foldexpr()";
     foldtext = "v:lua.vim.treesitter.foldtext()";
+    winborder = "rounded";
   };
 
   autoCmd = [
@@ -61,5 +62,9 @@
     }
   ];
 
-  autoGroups = { kickstart-highlight-yank = { clear = true; }; };
+  autoGroups = {
+    kickstart-highlight-yank = {
+      clear = true;
+    };
+  };
 }
