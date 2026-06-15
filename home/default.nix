@@ -46,6 +46,7 @@
       enable_audio_bell = "no";
       hide_window_decorations = "yes";
       confirm_os_window_close = "0";
+      background_opacity = "0.8";
     };
     themeFile = "OneDark";
   };
