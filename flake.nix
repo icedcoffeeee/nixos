@@ -20,9 +20,6 @@
     zen.url = "github:0xc000022070/zen-browser-flake";
     zen.inputs.nixpkgs.follows = "nixpkgs";
     zen.inputs.home-manager.follows = "home-manager";
-
-    dolphin.url = "github:rumboon/dolphin-overlay";
-    dolphin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs:
