@@ -57,10 +57,10 @@
     evince
     imagemagick
     inkscape
-    kdePackages.dolphin
     krita
     libreoffice
     loupe
+    nautilus
   ];
 
   environment.variables = {
