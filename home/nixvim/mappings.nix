@@ -143,8 +143,7 @@
     {
       mode = "n";
       key = "<c-b>";
-      action.__raw =
-        "function() require('mini.files').open(vim.api.nvim_buf_get_name(0)) end";
+      action.__raw = "function() require('mini.files').open(vim.api.nvim_buf_get_name(0)) end";
       options = {
         desc = "Toggle Mini Files";
         silent = true;
@@ -167,22 +166,32 @@
       };
     }
     {
-      mode = [ "n" "x" "o" ];
+      mode = [
+        "n"
+        "x"
+        "o"
+      ];
       key = "S";
       action.__raw = "function() require('flash').jump() end";
-      options = { desc = "Flash"; };
+      options = {
+        desc = "Flash";
+      };
     }
     {
       mode = "o";
       key = "r";
       action.__raw = "function() require('flash').remote() end";
-      options = { desc = "Remote Flash"; };
+      options = {
+        desc = "Remote Flash";
+      };
     }
     {
       mode = "c";
       key = "<c-s>";
       action.__raw = "function() require('flash').toggle() end";
-      options = { desc = "Toggle Flash Search"; };
+      options = {
+        desc = "Toggle Flash Search";
+      };
     }
   ];
 }

@@ -8,7 +8,7 @@
     ./ff.nix
   ];
 
-  programs.noctalia-shell.enable = true;
+  programs.noctalia.enable = true;
 
   programs.git = {
     enable = true;

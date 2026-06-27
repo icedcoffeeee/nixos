@@ -1,4 +1,11 @@
-{ inputs, pkgs, system, user, ... }: {
+{
+  inputs,
+  pkgs,
+  system,
+  user,
+  ...
+}:
+{
   imports = [
     # impure! needs a minimal nixos config
     /etc/nixos/hardware-configuration.nix
@@ -14,7 +21,13 @@
 
   system.stateVersion = "25.11";
 
-  fonts.packages = with pkgs; with pkgs.nerd-fonts; [ jetbrains-mono karla ];
+  fonts.packages =
+    with pkgs;
+    with pkgs.nerd-fonts;
+    [
+      jetbrains-mono
+      karla
+    ];
   fonts.fontconfig.defaultFonts.sansSerif = [ "Karla" ];
   fonts.fontconfig.defaultFonts.monospace = [ "JetBrainsMono Nerd Font" ];
 
@@ -22,14 +35,16 @@
   xdg.portal.wlr.enable = true;
 
   programs.niri.enable = true;
-  programs.niri.package = pkgs.niri.overrideAttrs (old: { doCheck = false; });
+  programs.niri.package = pkgs.niri.overrideAttrs (old: {
+    doCheck = false;
+  });
 
   programs.noctalia-greeter.enable = true;
   programs.zsh.enable = true;
   programs.steam.enable = true;
   programs.nix-ld.enable = true; # for uv
 
- users.users.${user} = {
+  users.users.${user} = {
     isNormalUser = true;
     description = user;
     extraGroups = [

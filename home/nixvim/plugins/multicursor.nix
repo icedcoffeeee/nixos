@@ -1,5 +1,7 @@
 { pkgs, ... }: {
-  options = { multicursor.enable = true; };
+  options = {
+    multicursor.enable = true;
+  };
   config = {
     extraPlugins = [
       (pkgs.vimUtils.buildVimPlugin {

@@ -1,5 +1,7 @@
 { pkgs, ... }: {
-  options = { formatter.enable = true; };
+  options = {
+    formatter.enable = true;
+  };
   config = {
     extraPlugins = [
       (pkgs.vimUtils.buildVimPlugin {
