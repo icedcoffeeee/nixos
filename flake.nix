@@ -12,8 +12,9 @@
     niri.url = "github:sodiboo/niri-flake";
     niri.inputs.nixpkgs.follows = "nixpkgs";
 
-    noctalia.url = "github:noctalia-dev/noctalia/legacy-v4";
+    noctalia.url = "github:noctalia-dev/noctalia";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
+
     noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
     noctalia-greeter.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -22,15 +23,24 @@
     zen.inputs.home-manager.follows = "home-manager";
   };
 
-  outputs = inputs:
+  outputs =
+    inputs:
     let
       user = "icedtea";
       host = "nixos";
       system = "x86_64-linux";
-    in {
+    in
+    {
       nixosConfigurations.${host} = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs system user host; };
+        specialArgs = {
+          inherit
+            inputs
+            system
+            user
+            host
+            ;
+        };
         modules = [
           inputs.niri.nixosModules.niri
           inputs.home-manager.nixosModules.home-manager
@@ -41,7 +51,14 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = { inherit inputs system user host; };
+              extraSpecialArgs = {
+                inherit
+                  inputs
+                  system
+                  user
+                  host
+                  ;
+              };
             };
 
             home-manager.users.${user} = {

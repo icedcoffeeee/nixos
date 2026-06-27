@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   xdg.configFile = {
     "niri/config.kdl".source = ../assets/niri.kdl;
+    "noctalia/settings.toml".source = ../assets/noctalia.toml;
   };
 
   xdg.mimeApps =

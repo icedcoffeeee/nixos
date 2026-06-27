@@ -9,7 +9,9 @@
       defaults = {
         file_ignore_patterns = [ "node_modules" ];
         sorting_strategy = "ascending";
-        layout_config.horizontal = { prompt_position = "top"; };
+        layout_config.horizontal = {
+          prompt_position = "top";
+        };
       };
       pickers = {
         find_files = {
@@ -28,43 +30,63 @@
     keymaps = {
       "<leader><leader>" = {
         action = "find_files";
-        options = { desc = "Search Files"; };
+        options = {
+          desc = "Search Files";
+        };
       };
       "<leader>s." = {
         action = "oldfiles";
-        options = { desc = "Search Recent Files ('.' for repeat)"; };
+        options = {
+          desc = "Search Recent Files ('.' for repeat)";
+        };
       };
       "<leader>sb" = {
         action = "buffers";
-        options = { desc = "Find existing buffers"; };
+        options = {
+          desc = "Find existing buffers";
+        };
       };
       "<leader>sd" = {
         action = "diagnostics";
-        options = { desc = "Search Diagnostics"; };
+        options = {
+          desc = "Search Diagnostics";
+        };
       };
       "<leader>sg" = {
         action = "live_grep";
-        options = { desc = "Search by Grep"; };
+        options = {
+          desc = "Search by Grep";
+        };
       };
       "<leader>sk" = {
         action = "keymaps";
-        options = { desc = "Search Keymaps"; };
+        options = {
+          desc = "Search Keymaps";
+        };
       };
       "<leader>sr" = {
         action = "resume";
-        options = { desc = "Search Resume"; };
+        options = {
+          desc = "Search Resume";
+        };
       };
       "<leader>ss" = {
         action = "builtin";
-        options = { desc = "Search Select Telescope"; };
+        options = {
+          desc = "Search Select Telescope";
+        };
       };
       "<leader>sw" = {
         action = "grep_string";
-        options = { desc = "Search current Word"; };
+        options = {
+          desc = "Search current Word";
+        };
       };
       "<leader>sh" = {
         action = "help_tags";
-        options = { desc = "Search Help"; };
+        options = {
+          desc = "Search Help";
+        };
       };
 
       "<leader>/" = {

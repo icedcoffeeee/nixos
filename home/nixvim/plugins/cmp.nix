@@ -9,9 +9,13 @@
     cmp = {
       enable = true;
       settings = {
-        completion = { completeopt = "menu,menuone,noinsert"; };
+        completion = {
+          completeopt = "menu,menuone,noinsert";
+        };
         autoEnableSources = true;
-        experimental = { ghost_text = true; };
+        experimental = {
+          ghost_text = true;
+        };
         performance = {
           debounce = 60;
           fetchingTimeout = 200;
@@ -24,7 +28,13 @@
             end
           '';
         };
-        formatting = { fields = [ "kind" "abbr" "menu" ]; };
+        formatting = {
+          fields = [
+            "kind"
+            "abbr"
+            "menu"
+          ];
+        };
         sources = [
           { name = "nvim_lsp"; }
           {

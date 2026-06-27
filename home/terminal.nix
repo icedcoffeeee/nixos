@@ -15,8 +15,7 @@ let
 
     ns = "nix-shell";
     nrs = "nixos-rebuild switch --flake ~/nixos --impure";
-    ncg =
-      "nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+    ncg = "nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
 
     s = "sudo ";
     v = "nvim";
@@ -48,7 +47,8 @@ let
       git clone "https://github.com/$repo.git" $@;
     }
   '';
-in {
+in
+{
   programs.bash = {
     enable = true;
     shellAliases = aliases;

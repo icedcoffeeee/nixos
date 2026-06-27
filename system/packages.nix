@@ -1,4 +1,13 @@
-{ inputs, system, pkgs, ... }: {
+{
+  inputs,
+  system,
+  pkgs,
+  ...
+}:
+let
+  noctalia = inputs.noctalia.packages.${system}.default;
+in
+{
   environment.systemPackages = with pkgs; [
     # code
     bear
@@ -16,8 +25,16 @@
     typst
     uv
 
-    (python313.withPackages
-      (p: with p; [ numpy matplotlib pyqt6 ipython scipy sympy ]))
+    (python313.withPackages (
+      p: with p; [
+        numpy
+        matplotlib
+        pyqt6
+        ipython
+        scipy
+        sympy
+      ]
+    ))
 
     # utilities
     android-tools
@@ -28,6 +45,7 @@
     ffmpeg
     gh
     git
+    gpu-screen-recorder
     docker-compose
     hyprshade
     killall
@@ -35,6 +53,7 @@
     kitty-themes
     lazydocker
     lazygit
+    noctalia
     p7zip
     pandoc
     pango
