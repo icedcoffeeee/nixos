@@ -14,7 +14,7 @@ end = [
 ]
 margin_ends = 10
 radius = 5
-start = [ "launcher", "workspaces", "cpu", "temp", "ram", "sysmon", "audio_visualizer", "network_rx", "network_tx" ]
+start = [ "launcher", "workspaces", "cpu", "temp", "ram", "sysmon", "network_rx", "network_tx", "audio_visualizer" ]
 widget_spacing = 10
 
 [location]
