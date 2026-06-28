@@ -1,5 +1,14 @@
 { pkgs, lib, ... }: {
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    settings.General = {
+      Name = "Hello";
+      ControllerMode = "dual";
+      FastConnectable = "true";
+      Experimental = "true";
+    };
+    settings.Policy.AutoEnable = "true";
+  };
 
   boot.kernelModules = [ "v4l2loopback" ];
   boot.extraModulePackages = with pkgs.linuxKernel.packages; [ linux_6_18.v4l2loopback ];
