@@ -27,4 +27,10 @@
       };
     };
   };
+
+  # touchpad
+  services.libinput = {
+    enable = true;
+    touchpad.accelProfile = "flat";
+  };
 }
