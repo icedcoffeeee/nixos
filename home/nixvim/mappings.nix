@@ -193,5 +193,13 @@
         desc = "Toggle Flash Search";
       };
     }
+    {
+      mode = [
+        "i"
+        "s"
+      ];
+      key = "<c-h>";
+      action.__raw = "vim.lsp.buf.signature_help";
+    }
   ];
 }
