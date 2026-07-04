@@ -79,7 +79,9 @@ in
     krita
     libreoffice
     loupe
+    mangohud
     nautilus
+    SDL2
   ];
 
   environment.variables = {

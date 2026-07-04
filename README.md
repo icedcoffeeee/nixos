@@ -17,3 +17,10 @@
 1. when vim opens, change your user and hostname.
 1. wait for build (20GB build)
 1. reboot!
+
+## gaming
+
+add this command to steam game launch settings:
+```
+SDL_VIDEODRIVER=x11 gamescope --backend sdl -f -- %command%
+```
