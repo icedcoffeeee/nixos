@@ -1,5 +1,7 @@
 { pkgs, ... }: {
-  home.file = { };
+  home.file = {
+    ".local/share/fonts/Garamond-Math.otf".source = ../assets/Garamond-Math.otf;
+  };
 
   home.pointerCursor = {
     enable = true;
