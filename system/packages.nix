@@ -48,11 +48,13 @@ in
     gpu-screen-recorder
     docker-compose
     hyprshade
+    jq
     killall
     kitty
     kitty-themes
     lazydocker
     lazygit
+    libsecret
     noctalia
     p7zip
     pandoc
