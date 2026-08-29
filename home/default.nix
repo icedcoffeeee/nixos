@@ -33,7 +33,7 @@
   programs.kitty = {
     enable = true;
     settings = {
-      font_family = "JetBrainsMono Nerd Font";
+      font_family = "IoskeleyMonoTerm Nerd Font Mono";
       font_size = "12";
       tab_bar_edge = "top";
       tab_bar_style = "powerline";
