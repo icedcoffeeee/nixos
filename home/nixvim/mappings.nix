@@ -139,6 +139,16 @@
       };
     }
 
+    {
+      mode = "t";
+      key = "<C-[>";
+      action = "<C-\\><C-n>";
+      options = {
+        desc = "Exit terminal mode";
+        silent = true;
+      };
+    }
+
     # plugins
     {
       mode = "n";
