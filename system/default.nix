@@ -41,6 +41,7 @@
         theme = "Posy_Cursor_Black";
         size = 25;
       };
+      auth.allow_empty_password = true;
       keyboard.layout = "us";
     };
   };
