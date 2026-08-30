@@ -9,8 +9,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "jake-stewart";
           repo = "multicursor.nvim";
-          rev = "f454cac";
-          hash = "sha256-0bFqoTq4d49/REDu6Rnmvms3kDIyEl0N57CpxYp0ImU=";
+          rev = "704b99f";
+          hash = "sha256-JHl8Z7ESrWus2I6Pe+6gmdgCAZOzAKX7kimy71sAoe4=";
         };
       })
     ];

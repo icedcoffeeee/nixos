@@ -138,7 +138,6 @@
         silent = true;
       };
     }
-
     {
       mode = "t";
       key = "<C-[>";
@@ -161,11 +160,6 @@
         nowait = true;
       };
     }
-    # {
-    #   mode = "n"; key = "<c-b>";
-    #   action.__raw = "function() require('nvim-tree.api').tree.toggle({ find_file = true }) end";
-    #   options = { desc = "Toggle NvimTree"; silent = true; noremap = true; nowait = true; };
-    # }
     {
       mode = "n";
       key = "<leader>f";

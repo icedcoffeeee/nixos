@@ -11,7 +11,7 @@
     # oil.enable = true;
     transparent.enable = true;
     treesitter.enable = true;
-    ts-autotag.enable = true;
+    # ts-autotag.enable = true;
     vim-surround.enable = true;
     web-devicons.enable = true;
 
