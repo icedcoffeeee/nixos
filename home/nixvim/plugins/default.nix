@@ -8,10 +8,8 @@
     indent-blankline.enable = true;
     luasnip.enable = true;
     nvim-autopairs.enable = true;
-    # oil.enable = true;
     transparent.enable = true;
     treesitter.enable = true;
-    # ts-autotag.enable = true;
     vim-surround.enable = true;
     web-devicons.enable = true;
 
@@ -59,6 +57,7 @@
     ./cmp.nix
     ./formatter.nix
     ./lsp.nix
+    ./autotag.nix
     ./multicursor.nix
     ./telescope.nix
     ./treesitter.nix
