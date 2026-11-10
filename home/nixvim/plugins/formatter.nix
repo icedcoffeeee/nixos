@@ -15,6 +15,7 @@
       })
     ];
     extraPackages = with pkgs; [
+      djlint
       shfmt
       stylua
       llvmPackages_19.clang-tools
@@ -32,6 +33,13 @@
         c = require("formatter.filetypes.cpp").clangformat,
         cpp = require("formatter.filetypes.cpp").clangformat,
         glsl = require("formatter.filetypes.cpp").clangformat,
+        jinja = function()
+          return {
+            exe = "djlint",
+            args = {"--reformat", "--indent=2", "--profile=jinja", "-" },
+            stdin = true,
+          }
+        end,
 
         python = require("formatter.filetypes.python").ruff,
         rust = require("formatter.filetypes.rust").rustfmt,

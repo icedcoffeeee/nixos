@@ -21,6 +21,8 @@
     zen.url = "github:0xc000022070/zen-browser-flake";
     zen.inputs.nixpkgs.follows = "nixpkgs";
     zen.inputs.home-manager.follows = "home-manager";
+
+    flatpak.url = "github:in-a-dil-emma/declarative-flatpak/latest";
   };
 
   outputs =
@@ -45,6 +47,7 @@
           inputs.niri.nixosModules.niri
           inputs.home-manager.nixosModules.home-manager
           inputs.noctalia-greeter.nixosModules.default
+          inputs.flatpak.nixosModules.default
           ./system
 
           {

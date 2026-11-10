@@ -30,21 +30,6 @@
     doCheck = false;
   });
 
-  programs.noctalia-greeter.enable = true;
-  programs.noctalia-greeter = {
-    # Optional configuration
-    greeter-args = "";
-    settings = {
-      user.default = user;
-      output.scale = 1;
-      cursor = {
-        theme = "Posy_Cursor_Black";
-        size = 25;
-      };
-      auth.allow_empty_password = true;
-      keyboard.layout = "us";
-    };
-  };
 
   programs.zsh.enable = true;
   programs.nix-ld.enable = true; # for uv
