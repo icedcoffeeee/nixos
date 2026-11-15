@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   systemd.user.services.niri-flake-polkit.enable = true;
   systemd.services.kill-printd = {
     description = "Kill fprintd before sleep";
