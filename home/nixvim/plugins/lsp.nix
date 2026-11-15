@@ -6,9 +6,10 @@
       biome.enable = true;
       clangd.enable = true;
       emmet_language_server.enable = true;
+      nixd.enable = true;
       svelte.enable = true;
-      ts_ls.enable = true;
       tinymist.enable = true;
+      ts_ls.enable = true;
 
       lua_ls = {
         enable = true;
