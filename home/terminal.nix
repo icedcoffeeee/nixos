@@ -12,6 +12,7 @@ let
     ps = "ps -A|rg";
     ff = "fastfetch";
     rgf = "rg --files|rg ";
+    rmf = "rm -rf ";
 
     ns = "nix-shell";
     nrs = "nixos-rebuild switch --flake ~/nixos --impure";
@@ -20,6 +21,8 @@ let
     s = "sudo ";
     v = "nvim";
     vx = "cd ~/nixos/ && nvim";
+    vn = "source .venv/bin/activate";
+    dn = "deactivate";
 
     ".." = "cd ..";
     open = "xdg-open";
